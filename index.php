@@ -6,17 +6,18 @@
 	</head>
 	<body>
 		<div id="header">
-			<p>Header</p>
-		</div>
-		<div id="mainNav">
+			<img src="images/banner.jpg" class="centerd"/>
+			<div id="mainNav">
+				<?php include("html/mainNav.php");?>
+			</div>
 		</div>
 		<div id="secondNav">
+			<?php include("html/secondNav.php");?>
+		</div>
+		<div id="user">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
 		</div>
 		<div id="content">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
-		</div>
-		<div id="user">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
 		</div>
 		<div id="footer">

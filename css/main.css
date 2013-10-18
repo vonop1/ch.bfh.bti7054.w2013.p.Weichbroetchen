@@ -11,8 +11,7 @@ p {
 }
 
 #header {
-    height: 75px;
-    background: green;
+    background: red;
 }
 
 #mainNav{
@@ -29,6 +28,7 @@ p {
 #secondNav {
     background: yellow;
     width: 150px;
+    min-height: 50px;
     float: left;
 }
 
@@ -44,3 +44,14 @@ p {
     clear: both;
 }
 
+img.centerd{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+li.mainNav
+{
+	float: left;
+	list-style-type: none;
+}
