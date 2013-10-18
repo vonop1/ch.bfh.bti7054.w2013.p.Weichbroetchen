@@ -1,0 +1,49 @@
+body {
+  color: black;  
+  background-color: white; 
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  margin: 0;  
+  font-size: 12px;
+}
+
+p {
+    padding: 10px;
+}
+
+#header {
+    height: 75px;
+    width: 1000px;
+    background: green;
+}
+
+#mainNav{
+	height: 20px;
+	width: 1000 px;
+	background: blue;
+}
+
+#content {
+    background: blue;
+    width: 700px;
+	float: left;
+}
+
+#secondNav {
+    background: yellow;
+    width: 150px;
+    float: left;
+}
+
+#user {
+    background: violet;
+    width: 150px;
+    float: left;
+}
+
+#footer {
+    height: 40px;
+    width: 1000px;
+    background: red;
+    clear: both;
+}
+
