@@ -12,20 +12,18 @@ p {
 
 #header {
     height: 75px;
-    width: 1000px;
     background: green;
 }
 
 #mainNav{
 	height: 20px;
-	width: 1000 px;
-	background: blue;
+	background: red;
 }
 
 #content {
     background: blue;
-    width: 700px;
-	float: left;
+    min-width: 700px;
+    min-height: 50px;
 }
 
 #secondNav {
@@ -37,12 +35,11 @@ p {
 #user {
     background: violet;
     width: 150px;
-    float: left;
+    float: right;
 }
 
 #footer {
     height: 40px;
-    width: 1000px;
     background: red;
     clear: both;
 }
