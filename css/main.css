@@ -1,45 +1,62 @@
 body {
-  color: black;  
-  background-color: white; 
   font-family: Verdana,Arial,Helvetica,sans-serif;
-  margin: 0;  
   font-size: 12px;
-  height: 100%;
+  color: black;   
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+	width: 100%;
+    min-width: 1000px;
+    max-width: 2000px;
+    margin: 0 auto;
 }
 
 #header {
+	float: left;
+	width: 100%;
     background: red;
 }
 
 #mainNav{
-	height: 20px;
-	background: red;
-}
-
-#content {
-    background: blue;
-    min-width: 50px;
-    min-height: 50px;
-    height: 100%;
+    float: left;
+    height: 40px;
+    width: 100%;
+	background-color: red;
+	text-align: center;
 }
 
 #secondNav {
-    background: yellow;
+	float: left;
+    background-color: yellow;
     width: 150px;
-    min-height: 50px;
+	margin-left:-100%;
+}
+
+#contentliquid {
     float: left;
+    width: 100%;
+}
+
+#content {
+    background-color: blue;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 #user {
-    background: violet;
+    background-color: violet;
     width: 150px;
-    float: right;
+    float: left;
+    margin-left: -150px;
 }
 
 #footer {
-    height: 40px;
-    background: red;
-    clear: both;
+  clear: both;
+  height: 40px;
+  width: 100%;
+  background-color: red;
 }
 
 img.centerd{
