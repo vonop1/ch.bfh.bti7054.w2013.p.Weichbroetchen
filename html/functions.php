@@ -17,26 +17,22 @@
 		return $new_url;
 	}
 	
-	function mainNav($items)
+	function changeUrl($attr, $val)
 	{
+		$idMain = get_param("idMain", 0);
+		$idSec = get_param("idSec", 0);
 		$language = get_param("lang", "de");
-		$languageItems = $items[$language];
-		foreach ($languageItems as $item)
-		{
-			echo '<li class="mainNav">';
-			echo "$item";							
-			echo '</li>';	
-		}
-				
-	}
-	
-	function language()
-	{
+		
+		if ($attr == "idMain") 	$idMain = $val;
+		if ($attr == "idSec") 	$idSec = $val;
+		if ($attr == "lang") 	$language = $val;
+		
 		$url = $_SERVER['PHP_SELF'];
-		//$url = add_param($url, "id", get_param("id", 0), "?");
-		//echo "<a href=\"".add_param($url,"lang","de")."\">DE</a> ";
-		//echo "<a href=\"".add_param($url,"lang","en")."\">EN</a> ";			
-		echo "<a href=\"".add_param($url,"lang","de","?")."\">DE</a> ";
-		echo "<a href=\"".add_param($url,"lang","en","?")."\">EN</a> ";
+		$url = add_param($url,"idMain",$idMain,"?");
+		$url = add_param($url,"idSec",$idSec);
+		$url = add_param($url, "lang", $language);
+		
+		return $url;
 	}
+
 ?>
