@@ -6,9 +6,10 @@
 	function mainNav($items)
 	{
 		$language = get_param("lang", "de");
-		$languageItems = $items[$language];
+		$languageItems = $items[$language];	//Array entsprechend der Sprache nehmen
 		foreach ($languageItems as $key => $value)
 		{
+			//Alle Elemente der Liste als mainNav Liste anzeigen
 			echo '<li class="mainNav">';
 				echo "<a href=\"".changeUrl("idMain", $key)."\">";
 					echo "$value";
@@ -20,8 +21,9 @@
 
 	function language()
 	{
-		echo "<a href=\"".changeUrl("lang","de")."\">DE</a> ";
-		echo "<a href=\"".changeUrl("lang","en")."\">EN</a> ";
+		//Sprach umstellung
+		echo "<a href=\"".changeUrl("lang","de")."\">DE</a> |";
+		echo "<a href=\"".changeUrl("lang","en")."\">EN</a>";
 	}
 ?>
 
