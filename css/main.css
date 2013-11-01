@@ -43,6 +43,7 @@ body {
     background-color: blue;
     margin-left: 150px;
     margin-right: 150px;
+    padding: 5px;
 }
 
 #user {
@@ -63,6 +64,11 @@ img.centerd{
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+img.content{
+	width: 250px;
+	
 }
 
 li.mainNav
