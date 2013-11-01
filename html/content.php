@@ -11,15 +11,17 @@
 		global $textCheck;
 		global $radio;
 		global $textRadio;
+		$textAddToCart = "Zum Warenkorb hinzufügen";
 		
 		echo "<h2>".$title."</h2>";
 		echo "<img src=\"$image\" alt=\"$image\" class=\"content\"/>";
 		
-		echo "<form action =\"AddToCart.php\" method=\"get\">";
+		echo "<form action =\"index.php\" method=\"post\">";
 		makeSelection("selcect", $select, $textSelect);	// Wenn vorhanden select Array als Auswahlliste anzeigen
-		makeCheckboxes($check, $textCheck);	// Wenn vorhanden check Array als Checkboxen ausgeben
+		makeCheckboxes($check, $textCheck);				// Wenn vorhanden check Array als Checkboxen ausgeben
 		makeRadio("radio", $radio, $textRadio);			// Wenn vorhanden radio Array als Radio buttons ausgeben
-		echo "</form";
+		echo "<input type=\"submit\" value=\"$textAddToCart\"/>";
+		echo "</form>";
 		
 	}
 	
