@@ -39,7 +39,7 @@
 			createContent();
 			break;
 		case 1:
-			$title = "Grünner Salat";
+			$title = "Grüner Salat";
 			$image = "images/salat.jpg";
 			$select = array("French Dressing", "Italian Dressing");
 			createContent();
