@@ -20,7 +20,7 @@
 		makeSelection("selcect", $select, $textSelect);	// Wenn vorhanden select Array als Auswahlliste anzeigen
 		makeCheckboxes($check, $textCheck);				// Wenn vorhanden check Array als Checkboxen ausgeben
 		makeRadio("radio", $radio, $textRadio);			// Wenn vorhanden radio Array als Radio buttons ausgeben
-		echo "<input type=\"submit\" value=\"$textAddToCart\"/>";
+		echo "<br/><input type=\"submit\" value=\"$textAddToCart\"/>";
 		echo "</form>";
 		
 	}
