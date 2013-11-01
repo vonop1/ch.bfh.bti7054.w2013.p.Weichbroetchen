@@ -14,7 +14,7 @@
 		foreach ($languageItems as $key => $value)
 		{
 			echo '<li class="secNav">';
-			echo "<a href=\"".changeUrl("idMain", $key)."\">";
+			echo "<a href=\"".changeUrl("idSec", $key)."\">";
 			echo "$value";
 			echo "</a>";
 			echo '</li>';
