@@ -3,6 +3,7 @@
 	<head>
 		<title>Weichbrötchen</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<script type="text/javascript" src="script/formValidation.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
