@@ -86,3 +86,37 @@ p#language
 {
 	text-align: right;	
 }
+
+
+/* Forms */
+
+legend {
+    background: red;
+    border: 1px solid black;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    padding: 4px;
+}
+
+.registration label {
+    display: block;
+    float: left;
+    width: 15em;
+}
+
+input {
+    background: white;
+    border: 1px solid black;
+    margin: 3px 0;
+    padding: 3px 3px;
+}
+
+input:active, input:focus, input:hover { 
+    background: lightgrey;
+}
+
+label {
+    margin: 5px 0;
+}
