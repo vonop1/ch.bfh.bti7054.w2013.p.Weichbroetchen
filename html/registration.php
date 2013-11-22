@@ -30,7 +30,7 @@
 	
 	foreach ( $formItems as $key => $value ) {
 		echo '<tr>';
-		echo  '<td>' .$value. '</td><td><input name="' .$key. '"></input></td>';
+		echo  '<td>' .$value. '</td><td><input id="' .$key. '" name="' .$key. '"></input></td>';
 		echo '<tr>';
 	}
 
