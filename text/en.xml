@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts>
+	<registration>
+	
+	</registration>
+	<user>
+		<Username>name</Username>
+		<LoginLink>login</LoginLink>
+		<RegistrationLink>registration</RegistrationLink>
+		<Cart>shoppingcart</Cart>
+	</user>
+</texts>

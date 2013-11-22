@@ -57,12 +57,13 @@
 			$textRadio = "Wählen sie die gewünschte Grösse:";
 			createContent();
 			break;
-		case 100:
+		case 100: 
+			// Login
+			include_once 'login.php';
+		case 101:
 			// Registrierung
 			include_once 'registration.php';
-		case 101: 
-			// Login
-			include_once 'user.php';
+			break;
 	
 	}
 ?>
