@@ -1,4 +1,9 @@
-<?php
+<?php 
+	//lädt Klassen definitions File
+  	function __autoload($class_name) { 
+    	require_once($class_name.".inc.php"); 
+  	} 
+  
 	//fragt den Parameter $name der url ab, und gibt wenn nicht definiert den Default zurück
 	function get_param($name, $default) 
 	{

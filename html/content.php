@@ -3,6 +3,7 @@
 	//generiert HTML Code für Content Area
 	function createContent()
 	{
+		global $id;
 		global $title;
 		global $image;
 		global $select;
@@ -14,22 +15,26 @@
 		$textAddToCart = "Zum Warenkorb hinzufügen";
 		
 		echo "<h2>".$title."</h2>";
-			echo "<img src=\"$image\" alt=\"$image\" class=\"content\"/>";
-			echo "<form action =\"index.php\" method=\"post\">";
-			makeSelection("selcect", $select, $textSelect);	// Wenn vorhanden select Array als Auswahlliste anzeigen
-			makeCheckboxes($check, $textCheck);				// Wenn vorhanden check Array als Checkboxen ausgeben
-			makeRadio("radio", $radio, $textRadio);			// Wenn vorhanden radio Array als Radio buttons ausgeben
-			echo "<input type=\"submit\" value=\"$textAddToCart\"/>";
-		echo "</form>";	
+		echo "<img src=\"$image\" alt=\"$image\" class=\"content\"/>";
+		
+		echo "<form action =\"html/AddToCart.php\" method=\"post\">";
+		makeSelection("selcect", $select, $textSelect);	// Wenn vorhanden select Array als Auswahlliste anzeigen
+		makeCheckboxes($check, $textCheck);				// Wenn vorhanden check Array als Checkboxen ausgeben
+		makeRadio("radio", $radio, $textRadio);			// Wenn vorhanden radio Array als Radio buttons ausgeben
+		echo "<input type=\"hidden\" name=\"id\" value=\"$id\">";
+		echo "<br/><input type=\"submit\" value=\"$textAddToCart\"/>";
+		echo "</form>";
+		
 	}
-	
 	
 
 	$idMain = (get_param("idMain", 0));
 	$textSelect =  "Wählen sie Ihre Sauce :";
+	$id = 0;
 	switch ($idMain)
 	{
 		case 0:
+			$id = 1;
 			$title = "Hamburger";
 			$image = "images/hamburger.jpg";
 			$select = array("Ketchup", "Senf", "Barbacue", "Weichbrötchen Spezial");
@@ -38,12 +43,14 @@
 			createContent();
 			break;
 		case 1:
+			$id = 2;
 			$title = "Grüner Salat";
 			$image = "images/salat.jpg";
 			$select = array("French Dressing", "Italian Dressing");
 			createContent();
 			break;
 		case 2:
+			$id = 3;
 			$title = "Cola";
 			$image = "images/cola.jpg";
 			$radio = array ("3dl", "4dl", "5dl");
@@ -51,17 +58,11 @@
 			createContent();
 			break;
 		case 100:
-			$title = "Registrierung";
-			$textReg = "Registrierung absenden";
-			echo "<h2>".$title."</h2>";
-			echo "<form action =\"evaluateReg.php\" onsubmit=\"return validateForm()\" method=\"post\">";
-			echo '<table border="0">';
-			include_once ('registration.php');
-			echo "<tr><td><input type=\"submit\" value=\"$textReg\"/></td></tr>";
-			echo '</table>';
-			echo "</form>";
-			break;
-		case 101:
-			break;
+			// Registrierung
+			include_once 'registration.php';
+		case 101: 
+			// Login
+			include_once 'user.php';
+	
 	}
 ?>
