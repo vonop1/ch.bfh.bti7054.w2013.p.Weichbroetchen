@@ -1,8 +1,5 @@
 <?php
-	include_once ('functions.php');
-	$user = array (	"de" => array("Registrierung", "Login"),
-			"en" => array(""));
-	
+	include_once ('functions.php');	
 ?>
 <ul>
 	<?php

@@ -48,13 +48,15 @@
 	{
 		if (is_array($options))
 		{
-			echo "<p>$text</p>";
+			echo '<fieldset class="registration">';
+			echo '<legend>' .$text. '</legend>';
 			echo "<select name=\"$name\" size=\"$size\">";
 			foreach($options as $value => $optionText)
 			{
-			makeOption($value, $optionText);
+				makeOption($value, $optionText);
 			}
 			echo "</select>";
+			echo '</fieldset>';
 		}
 	}
 	
@@ -68,13 +70,16 @@
 	//generiert den HTML Code für Checkboxes
 	function makeCheckboxes($options, $text)
 	{
+		
 		if (is_array($options))
 		{
-			echo "<p>$text</p>";
+			echo '<fieldset class="registration">';
+			echo '<legend>' .$text. '</legend>';
 			foreach($options as $optionText)
 			{
-				echo "<input type=\"checkbox\" name =\"cb_$optionText\">$optionText</input>";
+				echo "<input type=\"checkbox\" name =\"cb_$optionText\"> $optionText</input></br>";
 			}
+			echo '</fieldset>';
 		}
 	}
 
@@ -83,11 +88,14 @@
 	{
 		if (is_array($options))
 		{
-			echo "<p>$text</p>";
+			echo '<fieldset class="registration">';
+			echo '<legend>' .$text. '</legend>';
 			foreach($options as $optionText)
 			{
-				echo "<input type=\"radio\" name =\"$name\" value=\"$optionText\">$optionText</input>";
+				echo "<input type=\"radio\" name =\"$name\" value=\"$optionText\"> $optionText</input>";
+				echo '<br>';
 			}
+			echo '</fieldset>';
 		}
 	}
 

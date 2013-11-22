@@ -60,6 +60,7 @@
 		case 100: 
 			// Login
 			include_once 'login.php';
+			break;
 		case 101:
 			// Registrierung
 			include_once 'registration.php';
