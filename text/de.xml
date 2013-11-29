@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts>
 	<registration>
-		<firstname>Vorname</firstname>
-		<lastname>Nachname</lastname>
-		<street>Strasse</street>
-		<streetNumber>Hausnummer</streetNumber>
-		<ZIP>PLZ</ZIP>
-		<city>Ort</city>
-		<phone>Telefonnummer</phone>
-		<email>E-Mailadresse</email>
-		<emailR>E-Mailadresse wiederholen</emailR>
-		<password>Passwort</password>
-		<passwordR>Passwort wiederholen</passwordR>
+		<form>
+			<username>Benutzername</username>
+			<firstname>Vorname</firstname>
+			<lastname>Nachname</lastname>
+			<street>Strasse</street>
+			<streetNumber>Hausnummer</streetNumber>
+			<ZIP>PLZ</ZIP>
+			<city>Ort</city>
+			<phone>Telefonnummer</phone>
+			<email>E-Mailadresse</email>
+			<emailR>E-Mailadresse wiederholen</emailR>
+			<password>Passwort</password>
+			<passwordR>Passwort wiederholen</passwordR>
+		</form>
+		<titles>
+			<main>Registration</main>
+			<userReg>Kontaktangaben</userReg>
+			<finish>Abschliessen</finish>
+		</titles>
+		<buttons>
+			<send>Abschicken</send>
+			<reset>Eingaben löschen</reset>
+		</buttons>
 	</registration>
 	<user>
-		<Username>Name</Username>
+		<Username>Benutzername</Username>
 		<LoginLink>Login</LoginLink>
 		<RegistrationLink>Registrierung</RegistrationLink>
 		<Cart>WarenKorb</Cart>

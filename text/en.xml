@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts>
 	<registration>
-	
+			<form>
+				<username>Username</username>
+				<firstname>Firstname</firstname>
+				<lastname>Lastname</lastname>
+				<street>Street</street>
+				<streetNumber>Street number</streetNumber>
+				<ZIP>ZIP</ZIP>
+				<city>City</city>
+				<phone>Phonenumber</phone>
+				<email>emailaddress</email>
+				<emailR>repeat emailaddress</emailR>
+				<password>Password</password>
+				<passwordR>repeat password</passwordR>
+			</form>
+			<titles>
+				<main>Registration</main>
+				<userReg>Contact data</userReg>
+				<finish>Finish</finish>
+			</titles>
+			<buttons>
+				<send>Send</send>
+				<reset>Reset entries</reset>
+			</buttons>
 	</registration>
 	<user>
 		<Username>name</Username>
