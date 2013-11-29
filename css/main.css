@@ -37,6 +37,7 @@ body {
 #contentliquid {
     float: left;
     width: 100%;
+    background-color: blue;
 }
 
 #content {
@@ -81,6 +82,7 @@ li.mainNav
 	width: 8em;
 	text-align:center;
 }
+
 
 p#language
 {

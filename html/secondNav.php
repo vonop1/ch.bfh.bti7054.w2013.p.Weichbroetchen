@@ -11,20 +11,26 @@
 	{
 		$language = get_param("lang", "de");
 		$languageItems = $items[$language];
-		foreach ($languageItems as $key => $value)
+		if ($languageItems != null)
 		{
-			echo '<li class="secNav">';
-			echo "<a href=\"".changeUrl("idSec", $key)."\">";
-			echo "$value";
-			echo "</a>";
-			echo '</li>';
+			echo '<ul>';
+			foreach ($languageItems as $key => $value)
+			{
+				echo '<li class="secNav">';
+					echo "<a href=\"".changeUrl("idSec", $key)."\">";
+					echo "$value";
+					echo "</a>";
+				echo '</li>';
+	
+			}
+			echo '</ul>';
 		}
 	
 	}
 	
 
 ?>
-<ul>
+
 <?php
 	$idMain = (get_param("idMain", 0));
 	switch ($idMain)
@@ -41,5 +47,4 @@
 				
 	}	
 ?>
-</ul>
 
