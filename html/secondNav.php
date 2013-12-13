@@ -2,13 +2,6 @@
 	include_once ('functions.php');
 	
 	$prodDb = new ProductDB();
-	
-	$burgers = array (	"de" => array("Hamburger", "Chesseburger", "Pouletburger", "Vegiburger"),
-						"en" => array(""));
-	$sides = array (	"de" => array("Firtes","Country Fries","Salat"),
-						"en" => array(""));
-	$drinks = array (	"de" => array("Cola","Fanta","Sprite"),
-						"en" => array("Cola","Fanta","Sprite"));
 
 	function secNav($items)
 	{
@@ -29,10 +22,6 @@
 	
 	}
 	
-
-?>
-
-<?php
 	$idMain = (get_param("idMain", 0));
 	$res = $prodDb->getAllProducts($idMain);
 	

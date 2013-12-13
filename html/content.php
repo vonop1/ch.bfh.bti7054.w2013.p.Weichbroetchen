@@ -30,36 +30,23 @@
 
 	$idMain = (get_param("idMain", 0));
 	$idSec = (get_param("idSec", 1));
-	$textSelect =  "Wählen sie Ihre Sauce :";
 	$id = 0;
-	$prodcutDb = new ProductDB();
+	$productDb = new ProductDB();
 	switch ($idMain)
 	{
 		case 0:
+		case 1:
+		case 2:
 			$lang = get_param("lang", "de");
-			$select = array("Ketchup", "Senf", "Barbacue", "Weichbrötchen Spezial");
 			$check = array("Speck","Extra Käse", "Zusatz Sauce");
 			$textCheck = "Wählen sie Ihre Zusätze :";
 			//createContent();
-			$res = $prodcutDb->getProduct($idSec);
-			$select = $prodcutDb->getProductSelectExt($idSec, $lang);
-			$prod = new Product($res->fetch_object(), $lang, $select);
+			$res = $productDb->getProduct($idSec);
+			$select = $productDb->getProductSelectExt($idSec, $lang);
+			$check = $productDb->getProductCheckExt($idSec, $lang);
+			$radio = $productDb->getProductRadioExt($idSec, $lang);
+			$prod = new Product($res->fetch_object(), $lang, $select, $check, $radio);
 			$prod->display();
-			break;
-		case 1:
-			$id = 2;
-			$title = "Grüner Salat";
-			$image = "images/salat.jpg";
-			$select = array("French Dressing", "Italian Dressing");
-			createContent();
-			break;
-		case 2:
-			$id = 3;
-			$title = "Cola";
-			$image = "images/cola.jpg";
-			$radio = array ("3dl", "4dl", "5dl");
-			$textRadio = "Wählen sie die gewünschte Grösse:";
-			createContent();
 			break;
 		case 100: 
 			// Login

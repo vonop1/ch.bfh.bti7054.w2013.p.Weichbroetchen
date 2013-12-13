@@ -31,4 +31,10 @@
 		<RegistrationLink>registration</RegistrationLink>
 		<Cart>shoppingcart</Cart>
 	</user>
+	<content>
+		<ChooseSauce>Choose your sauce :</ChooseSauce>
+		<ChooseSize>Choose your size:</ChooseSize>
+		<ChooseExtra>Choose your extras:</ChooseExtra>
+		<AddToCart>Add To Cart</AddToCart>
+	</content>
 </texts>
