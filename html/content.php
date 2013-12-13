@@ -36,15 +36,14 @@
 	switch ($idMain)
 	{
 		case 0:
-			$id = 1;
-			$title = "Hamburger";
-			$image = "images/hamburger.jpg";
+			$lang = get_param("lang", "de");
 			$select = array("Ketchup", "Senf", "Barbacue", "Weichbrötchen Spezial");
 			$check = array("Speck","Extra Käse", "Zusatz Sauce");
 			$textCheck = "Wählen sie Ihre Zusätze :";
 			//createContent();
 			$res = $prodcutDb->getProduct($idSec);
-			$prod = new Product($res->fetch_object(), get_param("lang", "de"));
+			$select = $prodcutDb->getProductSelectExt($idSec, $lang);
+			$prod = new Product($res->fetch_object(), $lang, $select);
 			$prod->display();
 			break;
 		case 1:

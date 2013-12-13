@@ -5,17 +5,18 @@
 		private $prodName = "";
 		private $price = 0;
 		private $image = "";
-		private $select = null;
+		private $select = array();
 		private $check = null;
 		private $radio = null;
 		
 		//Konstruktor
-		public function __construct($product, $lang)
+		public function __construct($product, $lang, $select)
 		{
 			$text = "text_$lang";
 			$this->id = $product->prodId;
 			$this->prodName = $product->$text;
 			$this->image = $product->Image;
+			$this->select = $select;
 			
 		}
 		

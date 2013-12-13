@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 13. Dez 2013 um 10:00
+-- Erstellungszeit: 13. Dez 2013 um 12:20
 -- Server Version: 5.5.32
 -- PHP-Version: 5.4.19
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `webshop`
 --
-CREATE DATABASE IF NOT EXISTS `webshop` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `webshop` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 USE `webshop`;
 
 -- --------------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `extension` (
   `text_en` varchar(50) NOT NULL,
   PRIMARY KEY (`ExtId`),
   KEY `extensionCat` (`extensionCat`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Daten für Tabelle `extension`
@@ -43,31 +43,16 @@ CREATE TABLE IF NOT EXISTS `extension` (
 
 INSERT INTO `extension` (`ExtId`, `extensionCat`, `text_de`, `text_en`) VALUES
 (1, 1, 'Ketchup', 'ketchup'),
-(2, 1, 'Senf', 'senf');
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `prodextension`
---
-
-CREATE TABLE IF NOT EXISTS `prodextension` (
-  `prodId` int(11) NOT NULL AUTO_INCREMENT,
-  `radioExt` int(11) DEFAULT NULL,
-  `CheckboxExt` int(11) DEFAULT NULL,
-  `selectExt` int(11) DEFAULT NULL,
-  PRIMARY KEY (`prodId`),
-  KEY `radioExt` (`radioExt`),
-  KEY `CheckboxExt` (`CheckboxExt`),
-  KEY `selectExt` (`selectExt`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Daten für Tabelle `prodextension`
---
-
-INSERT INTO `prodextension` (`prodId`, `radioExt`, `CheckboxExt`, `selectExt`) VALUES
-(1, NULL, NULL, 1);
+(2, 1, 'Senf', 'senf'),
+(3, 1, 'Barbacue', 'barbacue'),
+(4, 1, 'Weichbrötchen Spezial', 'Weichbrötchen special'),
+(5, 2, 'Französische Salatsauce', 'French dressing'),
+(6, 2, 'Italienische Salatsauce', 'Italian dressing'),
+(7, 3, 'Speck', 'bacon'),
+(8, 3, 'Extra Käse', 'extra Cheese'),
+(9, 4, '3 dl', '3 dl'),
+(10, 4, '4 dl', '4 dl'),
+(11, 4, '5 dl', '5 dl');
 
 -- --------------------------------------------------------
 
@@ -85,29 +70,34 @@ CREATE TABLE IF NOT EXISTS `product` (
   `text_en` varchar(50) COLLATE utf8_bin NOT NULL,
   `prodCategorie` int(11) NOT NULL,
   PRIMARY KEY (`prodId`),
-  KEY `SelectList` (`SelectList`,`CheckboxList`,`RadioList`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+  KEY `SelectList` (`SelectList`,`CheckboxList`,`RadioList`),
+  KEY `RadioList` (`RadioList`),
+  KEY `CheckboxList` (`CheckboxList`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
 
 --
 -- Daten für Tabelle `product`
 --
 
 INSERT INTO `product` (`prodId`, `text_de`, `Image`, `SelectList`, `CheckboxList`, `RadioList`, `text_en`, `prodCategorie`) VALUES
-(1, 'Hamburger', 'images/hamburger.jpg', NULL, NULL, NULL, 'Hamburger', 0),
-(2, 'Cheeseburger', 'images/cheeseburger.jpg', NULL, NULL, NULL, 'chesseburger', 0);
+(1, 'Hamburger', 'images/hamburger.jpg', 1, 3, NULL, 'Hamburger', 0),
+(2, 'Cheeseburger', 'images/cheeseburger.jpg', 1, 3, NULL, 'chesseburger', 0),
+(3, 'Grüner Salat', 'images/salat.jpg', 2, NULL, NULL, 'green salad', 1),
+(4, 'Cola', 'images/cola.jpg', NULL, NULL, 4, 'Cola', 2),
+(5, 'Pommes Frites', 'images/pommes.jpg', 1, NULL, NULL, 'fries', 1),
+(6, 'Country Fries', 'images/country_fries.jpg', 1, NULL, NULL, 'country fries', 1);
 
 --
 -- Constraints der exportierten Tabellen
 --
 
 --
--- Constraints der Tabelle `prodextension`
+-- Constraints der Tabelle `product`
 --
-ALTER TABLE `prodextension`
-  ADD CONSTRAINT `prodextension_ibfk_4` FOREIGN KEY (`selectExt`) REFERENCES `extension` (`extensionCat`),
-  ADD CONSTRAINT `prodextension_ibfk_1` FOREIGN KEY (`prodId`) REFERENCES `product` (`prodId`),
-  ADD CONSTRAINT `prodextension_ibfk_2` FOREIGN KEY (`radioExt`) REFERENCES `extension` (`extensionCat`),
-  ADD CONSTRAINT `prodextension_ibfk_3` FOREIGN KEY (`CheckboxExt`) REFERENCES `extension` (`extensionCat`);
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`RadioList`) REFERENCES `extension` (`extensionCat`),
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`SelectList`) REFERENCES `extension` (`extensionCat`),
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`CheckboxList`) REFERENCES `extension` (`extensionCat`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
