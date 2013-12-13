@@ -1,5 +1,8 @@
 <?php
 	include_once ('functions.php');
+	
+	$prodDb = new ProductDB();
+	
 	$burgers = array (	"de" => array("Hamburger", "Chesseburger", "Pouletburger", "Vegiburger"),
 						"en" => array(""));
 	$sides = array (	"de" => array("Firtes","Country Fries","Salat"),
@@ -9,12 +12,10 @@
 
 	function secNav($items)
 	{
-		$language = get_param("lang", "de");
-		$languageItems = $items[$language];
-		if ($languageItems != null)
+		if ($items != null)
 		{
 			echo '<ul>';
-			foreach ($languageItems as $key => $value)
+			foreach ($items as $key => $value)
 			{
 				echo '<li class="secNav">';
 					echo "<a href=\"".changeUrl("idSec", $key)."\">";
@@ -33,18 +34,16 @@
 
 <?php
 	$idMain = (get_param("idMain", 0));
-	switch ($idMain)
+	$res = $prodDb->getAllProducts($idMain);
+	
+	$items = array();
+	while ($item = $res->fetch_object())
 	{
-		case 0:
-			secNav($burgers);
-			break;
-		case 1:
-			secNav($sides);
-			break;
-		case 2:
-			secNav($drinks);
-			break;
-				
-	}	
+		$lang = get_param("lang", "de");
+		$text = "text_$lang";
+		$items[$item->prodId] = $item->$text;
+	}
+	
+	secNav($items);
 ?>
 

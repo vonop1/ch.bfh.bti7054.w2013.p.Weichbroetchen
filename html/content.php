@@ -29,8 +29,10 @@
 	
 
 	$idMain = (get_param("idMain", 0));
+	$idSec = (get_param("idSec", 1));
 	$textSelect =  "Wählen sie Ihre Sauce :";
 	$id = 0;
+	$prodcutDb = new ProductDB();
 	switch ($idMain)
 	{
 		case 0:
@@ -40,7 +42,10 @@
 			$select = array("Ketchup", "Senf", "Barbacue", "Weichbrötchen Spezial");
 			$check = array("Speck","Extra Käse", "Zusatz Sauce");
 			$textCheck = "Wählen sie Ihre Zusätze :";
-			createContent();
+			//createContent();
+			$res = $prodcutDb->getProduct($idSec);
+			$prod = new Product($res->fetch_object(), get_param("lang", "de"));
+			$prod->display();
 			break;
 		case 1:
 			$id = 2;
