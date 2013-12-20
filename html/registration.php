@@ -25,29 +25,32 @@
 	
 	//create html content
 	echo '<h2>' .$mainTitle. '</h2>';
-	echo '<form action ="evaluateReg.php" onsubmit="return validateForm()" method="post">';
-	echo '<fieldset class="registration">';
-	echo '<legend>' .$userRegTitle. '</legend>';
-	$accesskey = 1;
-	foreach ($formTexts->children() as $child){
-		$childName = $child->getName();
-		echo '<label accesskey="' .$accesskey. '" for="' .$childName. '">' .$child. '</label>';
-		if ($childName == "password" || $childName == "passwordR") {
-			echo '<input type="password" id="' .$childName. '" name="' .$childName. '" size="' .$inputSize. '"></input>';
-		}else{
-			echo '<input id="' .$childName. '" name="' .$childName. '" size="' .$inputSize. '"></input>';
+	if (isset($_POST['submit'])){
+		echo '<p>it works</p>';
+	}else{
+		echo '<form action ="evaluateReg.php" onsubmit="return validateForm()" method="post">';
+		echo '<fieldset class="registration">';
+		echo '<legend>' .$userRegTitle. '</legend>';
+		$accesskey = 1;
+		foreach ($formTexts->children() as $child){
+			$childName = $child->getName();
+			echo '<label accesskey="' .$accesskey. '" for="' .$childName. '">' .$child. '</label>';
+			if ($childName == "password" || $childName == "passwordR") {
+				echo '<input type="password" id="' .$childName. '" name="' .$childName. '" size="' .$inputSize. '"></input>';
+			}else{
+				echo '<input id="' .$childName. '" name="' .$childName. '" size="' .$inputSize. '" class="input"></input>';
+			}
+			echo '<br></br>';
+			$accesskey++;
 		}
+		
+		echo '</fieldset>';
 		echo '<br></br>';
-		$accesskey++;
+		echo '<fieldset class="buttons">';
+		echo '<legend>' .$finishTitle. '</legend>';
+		echo '<input id="submit" name="submit" type="submit" value="' .$submitValue. '"></input>';
+		echo '<input id="reset" type="reset" value="' .$resetValue. '"></input>';
+		echo '</fieldset>';
+		echo '</form>';
 	}
-	
-	echo '</fieldset>';
-	echo '<br></br>';
-	echo '<fieldset class="buttons">';
-	echo '<legend>' .$finishTitle. '</legend>';
-	echo '<input id="submit" type="submit" value="' .$submitValue. '"></input>';
-	echo '<input id="reset" type="reset" value="' .$resetValue. '"></input>';
-	echo '</fieldset>';
-	echo '</form>';
-
 ?>
