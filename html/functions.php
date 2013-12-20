@@ -24,16 +24,35 @@
 		return $new_url;
 	}
 	
-	//gerneriert aus der aktuellen URL eine neue URL mit geändertem Attribut
-	function changeUrl($attr, $val)
+	//gerneriert aus der aktuellen URL eine neue URL mit geänderten Attributen
+	function changeUrl($attr)
 	{
-		$idMain = get_param("idMain", 0);
-		$idSec = get_param("idSec", 0);
-		$language = get_param("lang", "de");
+		if (isset($attr["idMain"]))
+		{
+			$idMain = $attr["idMain"];
+		}
+		else 
+		{
+			$idMain = get_param("idMain", 1);
+		}
 		
-		if ($attr == "idMain") 	$idMain = $val;
-		if ($attr == "idSec") 	$idSec = $val;
-		if ($attr == "lang") 	$language = $val;
+		if (isset($attr["idSec"]))
+		{
+			$idSec = $attr["idSec"];
+		}
+		else 
+		{
+			$idSec = get_param("idSec", 1);
+		}
+		
+		if (isset($attr["lang"]))
+		{
+			$language = $attr["lang"];
+		}
+		else 
+		{
+			$language = get_param("lang", "de");
+		}
 		
 		$url = $_SERVER['PHP_SELF'];
 		$url = add_param($url,"idMain",$idMain,"?");

@@ -1,23 +1,42 @@
 <?php 
 class ProductDB extends mysqli { 
-	  public function getAllProducts($categorie) 
-	  { 
-	    return $this->query("SELECT * FROM product WHERE prodCategorie = $categorie"); 
-	  }
+	function __construct() {
+		parent::__construct("localhost", "root", "");
+		parent::select_db("webshop");
+	}
+	 
+	function __destruct()
+	{
+		parent::close();
+	}
+
+	//Alle Kategorien abfragen
+	public function getAllCategories()
+	{
+		return $this->query("SELECT * FROM productcategorie");
+	}
+	
+	//Alle Produkte einer Kategorie abfragen
+	public function getAllProducts($categorie) 
+	{ 
+	  return $this->query("SELECT * FROM product WHERE prodCategorie = $categorie"); 
+	}
 	   
-	  public function deleteProduct($id) 
-	  { 
-	    $this->query("DELETE FROM product WHERE prodId = $id"); 
-	  }
+	public function deleteProduct($id) 
+	{ 
+	  $this->query("DELETE FROM product WHERE prodId = $id"); 
+	}
 
-	  public function getProduct($id)
-	  {
-	  	return $this->query("Select * From product WHERE prodId = $id");
-	  }
+	//Produkt abfragen
+	public function getProduct($id)
+	{
+		return $this->query("Select * From product WHERE prodId = $id");
+	}
 
-	  public function getProductSelectExt($id, $lang)
-	  {
-	  	$res = $this->query("Select * From product WHERE prodId = $id");
+	//Für bestimmtes Produkt Zusätze für Dropdown Liste abfragen
+	public function getProductSelectExt($id, $lang)
+	{
+		$res = $this->query("Select * From product WHERE prodId = $id");
 	  	if ($selectExt = $res->fetch_object())
 	  	{
 		  	$selectExtId = $selectExt->SelectList;
@@ -32,14 +51,15 @@ class ProductDB extends mysqli {
 			  	}
 		  		return $returnVal;
 		  	}
-	  	}
-	  	return null;
-	  }
+		}
+		return null;
+	}
 
-	  public function getProductCheckExt($id, $lang)
-	  {
-	  	$res = $this->query("Select * From product WHERE prodId = $id");
-	  	if ($checkExt = $res->fetch_object())
+	//Für bestimmtes Produkt Zusätze für Checkboxen abfragen
+  	public function getProductCheckExt($id, $lang)
+  	{
+  		$res = $this->query("Select * From product WHERE prodId = $id");
+  		if ($checkExt = $res->fetch_object())
 	  	{
 		  	$checkExtId = $checkExt->CheckboxList;
 		  	if ($res = $this->query("Select * FROM extension WHERE extensionCat = $checkExtId"))
@@ -55,10 +75,12 @@ class ProductDB extends mysqli {
 		  	}
 	  	}
 	  	return null;
-	  }
+  	}
 
-	  public function getProductRadioExt($id, $lang)
-	  {
+
+  	//Für bestimmtes Produkt Zusätze für Radio Buttons abfragen
+  	public function getProductRadioExt($id, $lang)
+  	{
 	  	$res = $this->query("Select * From product WHERE prodId = $id");
 	  	if ($radioExt = $res->fetch_object())
 	  	{
@@ -74,19 +96,9 @@ class ProductDB extends mysqli {
 			  	}
 		  		return $returnVal;
 		  	}
-	  	}
+  		}
 	  	return null;
-	  }
-	  
-	  function __construct() { 
-	    parent::__construct("localhost", "root", ""); 
-	    parent::select_db("webshop"); 
-	  } 
-	  
-	  function __destruct()
-	  {
-	  	parent::close();
-	  }
+  	}
 }
   
   ?>
