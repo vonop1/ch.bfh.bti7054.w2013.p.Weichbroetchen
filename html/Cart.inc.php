@@ -6,7 +6,8 @@
 		
 		//add a item to the session bassed card
 		public function addItem($item) {
-			$this->items[$counter] = $item;
+			$this->items[$this->counter] = $item;
+			$this->counter++;
 		}
 		
 		//remove a item from card

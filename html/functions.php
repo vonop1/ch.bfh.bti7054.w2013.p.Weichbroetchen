@@ -94,9 +94,9 @@
 		{
 			echo '<fieldset class="registration">';
 			echo '<legend>' .$text. '</legend>';
-			foreach($options as $optionText)
+			foreach($options as $value => $optionText)
 			{
-				echo "<input type=\"checkbox\" name =\"cb_$optionText\"> $optionText</input></br>";
+				echo "<input type=\"checkbox\" name =\"cb_$value\"> $optionText</input></br>";
 			}
 			echo '</fieldset>';
 		}

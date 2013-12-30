@@ -5,7 +5,27 @@
 	{
 		$_SESSION["cart"] = new Cart();
 	}
-	$_SESSION["cart"]->addItem(new Product($_POST["id"]));
+	
+	if (isSet($_POST["id"]))
+	{
+		$extension = array();
+		if (isSet($_POST["select"]))
+		{
+			$extension["select"] = $_POST["select"];
+		}
+		if (isSet($_POST["radio"]))
+		{
+			$extension["radio"] = $_POST["radio"];
+		}
+		foreach ($_POST as $key => $value)
+		{
+			if (preg_match("/cb_.*/", $key))	
+			{
+				$extension[$key] = $value;
+			}
+		}
+		$_SESSION["cart"]->addItem(new CartItem($_POST["id"], $extension));
+	}
 
 ?>
 <script type="text/javascript">

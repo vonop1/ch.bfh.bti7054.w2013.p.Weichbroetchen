@@ -3,16 +3,16 @@
 	
 	$prodDb = new ProductDB();
 	
-	$idMain = (get_param("idMain", 0));
+	$idMain = (get_param("idMain", 1));
 	$res = $prodDb->getAllProducts($idMain);
 	
-	if ($res != null)
+	if ($item = $res->fetch_object())
 	{
 		echo '<ul>';
 
 		$lang = get_param("lang", "de");
 		$text = "text_$lang";
-		while ($item = $res->fetch_object())
+		do 
 		{
 			echo '<li class="secNav">';
 				echo "<a href=\"".changeUrl(array("idSec" => $item->prodId))."\">";
@@ -20,6 +20,7 @@
 				echo "</a>";
 			echo '</li>';
 		}
+		while ($item = $res->fetch_object());
 		echo '</ul>';
 	}	
 ?>

@@ -16,6 +16,10 @@
 			break;
 		case 102:
 			// Warenkorb
+			if(isset($_SESSION["cart"]))
+			{
+				$_SESSION["cart"]->display();
+			}
 			break;
 			
 		default:
