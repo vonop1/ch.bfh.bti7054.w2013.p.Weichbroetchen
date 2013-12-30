@@ -119,6 +119,16 @@ input:active, input:focus, input:hover {
     background: lightgrey;
 }
 
+.inputError {
+	background: #FF4040;
+	border: 1px solid red;
+}
+
+.inputOK {
+	background: lightgreen;
+	border: 1px solid green;
+}
+
 label {
     margin: 5px 0;
 }

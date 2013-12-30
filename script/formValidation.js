@@ -1,65 +1,179 @@
+/**
+ * Validates the registration form, language is set with hidden input 
+ * @returns {Boolean} false if an error is found, true if everything is ok
+ */
 function validateForm(){
-	var username = document.getElementById("username").value;
-	var firstname = document.getElementById("firstname").value;
-	var lastname = document.getElementById("lastname").value;
-	var street = document.getElementById("street").value;
-	var streetNo = document.getElementById("streetNumber").value;
-	var zip = document.getElementById("ZIP").value;
-	var city = document.getElementById("city").value;
-	var phone = document.getElementById("phone").value;
-	var email = document.getElementById("email").value;
-	var emailR = document.getElementById("emailR").value;
-	var password = document.getElementById("password").value;
-	var passwordR = document.getElementById("passwordR").value;
+	
+	//get input fields and set standard values
+	var username = document.getElementById("username");
+	username.className = "inputOK";
+	username.title = "OK";
+	var firstname = document.getElementById("firstname");
+	firstname.className = "inputOK";
+	firstname.title = "OK";
+	var lastname = document.getElementById("lastname");
+	lastname.className = "inputOK";
+	lastname.title = "OK";
+	var street = document.getElementById("street");
+	street.className = "inputOK";
+	street.title = "OK";
+	var streetNo = document.getElementById("streetNumber");
+	streetNo.className = "inputOK";
+	streetNo.title = "OK";
+	var zip = document.getElementById("ZIP");
+	zip.className = "inputOK";
+	zip.title = "OK";
+	var city = document.getElementById("city");
+	city.className = "inputOK";
+	city.title = "OK";
+	var phone = document.getElementById("phone");
+	phone.className = "inputOK";
+	phone.title = "OK";
+	var email = document.getElementById("email");
+	email.className = "inputOK";
+	email.title = "OK";
+	var emailR = document.getElementById("emailR");
+	emailR.className = "inputOK";
+	emailR.title = "OK";
+	var password = document.getElementById("password");
+	password.className = "inputOK";
+	password.title = "OK";
+	var passwordR = document.getElementById("passwordR");
+	passwordR.className = "inputOK";
+	passwordR.title = "OK";
+	
+	//get language
+	var language = document.getElementById("lang").value;
+	
+	//set standard return value
 	var ret = true;
-
-	if (!firstname.match(/^[A-ZÄÖÜa-zäöüéèàç]{2,}$/)) {
-		document.getElementById("firstname").className = "inputError";
-	    document.getElementById("firstname").value = "Bitte Ihren Namen eingeben!";
-	    ret = false;
-	}
-	if (!lastname.match(/^[A-ZÄÖÜa-zäöüéèàç]{2,}[[ ]?[A-ZÄÖÜa-zäöüéèàç]+]*$/)){
-	    document.getElementById("lastname").value = "Bitte Ihren Nachnamen eingeben!";
-	    ret = false;
-	}
-	if (!street.match(/^[A-ZÄÖÜa-zäöü]+$/)){
-	    document.getElementById("street").value = "Bitte Strasse angeben";
-	    ret = false;
-	}
-	if (!streetNo.match(/^[0-9A-Za-z]*$/)){
-	    document.getElementById("streetNumber").value = "Bitte korrekte Hausnummer angeben";
-	    ret = false;
-	}
-	if (!zip.match(/^[1-9]{1}\d{3}$/)){
-	    document.getElementById("ZIP").value = "Bitte korrekte PLZ angeben";
-	    ret = false;
-	}
-	if (!city.match(/^[A-ZÄÖÜa-zäöü]{2,}$/)){
-	    document.getElementById("city").value = "Bitte Stadt angeben";
-	    ret = false;
-	}
-	if (!phone.match(/^\+\d{2} \d{2} \d{3} \d{2} \d{2}$/)){
-	    document.getElementById("phone").value = "Bitte Telefonnummer im Format +41 XX XXX XX XX angeben";
-	    ret = false;
-	}
-	/*
-	if (email == emailR){
-		if (!email.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i)){
-		    document.getElementById("").value = "Bitte E-Mailadresse angeben";
-		    ret = false;
+	
+	//check the input fields
+	if (!username.value.match(/^[A-Za-z]+[A-Za-z0-9]*$/)){
+		if(language == "en"){
+			username.title = "Username error! Allowed characters are the alphabet and numbers. Must start with a letter";
+		}else{
+			username.title = "Fehler beim Benutzername! Erlaubt sind Buchstaben und Zahlen. Muss mit einem Buchstaben anfangen";
 		}
-	}else{
-		document.getElementById("email").value = "Felder stimmen nicht überein";
+		username.className = "inputError";
 		ret = false;
 	}
-	*/
-	if (password == passwordR){
-		if (!password.match(/^$/)){
-		    document.getElementById("").value = "Bitte  angeben";
-		    ret = false;
+
+	if (!firstname.value.match(/^[A-ZÄÖÜa-zäöüéèàç]{2,}$/)) {
+		if(language == "en"){
+			firstname.title = "Firstname error! At least 2 characters, without spaces";
+		}else{
+			firstname.title = "Fehler bei Vorname! Mindestens 2 Buchstaben, ohne Leerzeichen";
 		}
-	}else{
-		document.getElementById("password").value = "Felder stimmen nicht überein";
+		firstname.className = "inputError";
+	    ret = false;
+	}
+	
+	if (!lastname.value.match(/^[A-ZÄÖÜa-zäöüéèàç]{2,}[[ ]?[A-ZÄÖÜa-zäöüéèàç]+]*$/)){
+		if(language == "en"){
+			lastname.title = "Lastname error! At least two letters, spaces are allowed";
+		}else{
+			lastname.title = "Fehler bei Nachname! Mindestens zwei Buchstaben, Leerzeichen sind erlaubt";
+		}
+		lastname.className = "inputError";
+	    ret = false;
+	}
+
+	if (!street.value.match(/^[A-ZÄÖÜa-zäöü]+$/)){
+		if(language == "en"){
+			street.title = "Street error! Only letters are allowed";
+		}else{
+			street.title = "Fehler bei Strasse! Nur Buchstaben sind erlaubt";
+		}
+	    street.className = "inputError";
+	    ret = false;
+	}
+	
+	if (!streetNo.value.match(/^[0-9A-Za-z]*$/)){
+		if(language == "en"){
+			streetNo.title = "Street number error! Only letters from the alphabet and numbers are allowed";
+		}else{
+			streetNo.title = "Fehler bei Strassenummer! Nur Buchstaben aus dem Alphabet und Zahlen sind erlaubt";
+		}
+	    streetNo.className = "inputError";
+	    ret = false;
+	}
+	
+	if (!zip.value.match(/^[1-9]{1}\d{3}$/)){
+		if(language == "en"){
+			zip.title = "ZIP error! Only four-digit numbers are allowed";
+		}else{
+			zip.title = "Fehler bei PLZ! Nur vierstellige Zahlen sind erlaubt";
+		}
+	    zip.className = "inputError";
+	    ret = false;
+	}
+	
+	if (!city.value.match(/^[A-ZÄÖÜa-zäöü ]{2,}$/)){
+		if(language == "en"){
+			city.title = "City error! Only letters and spaces are allowed";
+		}else{
+			city.title = "Fehler beim Ort! Nur Buchstaben und Leerzeichen sind erlaubt";
+		}
+	    city.className = "inputError";
+	    ret = false;
+	}
+	
+	if (!phone.value.match(/^\+\d{2} \d{2} \d{3} \d{2} \d{2}$/)){
+		if(language == "en"){
+			phone.title = "Phonenumber error! Please provide your number in the following format: +41 XX XXX XX XX";
+		}else{
+			phone.title = "Fehler bei der Telefonnummer! Bitte Telefonnummer im Format +41 XX XXX XX XX angeben";
+		}
+		phone.className = "inputError";
+	    ret = false;
+	}
+	
+	if (email.value != emailR.value){
+		if(language == "en"){
+			email.title = "Email address error! Entries don't match";
+			emailR.title = "Email address error! Entries don't match";
+		}else{
+			email.title = "Fehler bei E-Mailadresse! Einträge stimmen nicht überein";
+			emailR.title = "Fehler bei E-Mailadresse! Einträge stimmen nicht überein";
+		}
+		email.className = "inputError";
+		emailR.className = "inputError";
+		ret = false;
+	}else if(!email.value.match(/^[A-Za-z0-9\._%\+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,4}$/)){
+		if(language == "en"){
+			email.title = "Email address error! This is not a valid email address";
+			emailR.title = "Email address error! This is not a valid email address";
+		}else{
+			email.title = "Fehler bei E-Mailadresse! Keine gültige E-Mailadresse";
+			emailR.title = "Fehler bei E-Mailadresse! Keine gültige E-Mailadresse";
+		}
+		email.className = "inputError";
+		emailR.className = "inputError";
+		ret = false;
+	}
+	
+	if (password.value != passwordR.value){
+		if(language == "en"){
+			password.title = "Password error! Entries don't match";
+			passwordR.title = "Password error! Entries don't match";
+		}else{
+			password.title = "Fehler beim Passwort! Einträge stimmen nicht überein";
+			passwordR.title = "Fehler beim Passwort! Einträge stimmen nicht überein";
+		}
+		password.className = "inputError";
+		passwordR.className = "inputError";
+		ret = false;
+	}else if(!password.value.match(/^[\S]{6,20}$/)){
+		if(language == "en"){
+			password.title = "Password error! Must be between 6 to 20 characters";
+			passwordR.title = "Password error! Must be between 6 to 20 characters";
+		}else{
+			password.title = "Fehler beim Passwort! Muss zwischen 6 bis 20 Zeichen lang sein";
+			passwordR.title = "Fehler beim Passwort! Muss zwischen 6 bis 20 Zeichen lang sein";
+		}
+		password.className = "inputError";
+		passwordR.className = "inputError";
 		ret = false;
 	}
 
