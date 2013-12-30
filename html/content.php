@@ -18,7 +18,8 @@
 			// Warenkorb
 			if(isset($_SESSION["cart"]))
 			{
-				$_SESSION["cart"]->display();
+				$shoppingCart = unserialize($_SESSION["cart"]);
+				$shoppingCart->display();
 			}
 			break;
 			

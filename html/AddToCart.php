@@ -1,9 +1,14 @@
 <?php
 	require_once 'functions.php';
+	session_start();
 	
-	if (!isSet($_SESSION["cart"]))
+	if (isSet($_SESSION["cart"]))
 	{
-		$_SESSION["cart"] = new Cart();
+		$shoppingCart = unserialize($_SESSION["cart"]);
+	}
+	else 
+	{
+		$shoppingCart = new Cart();
 	}
 	
 	if (isSet($_POST["id"]))
@@ -19,13 +24,15 @@
 		}
 		foreach ($_POST as $key => $value)
 		{
+			//kontrollieren ob noch Checkboxen angewählt wurden
 			if (preg_match("/cb_.*/", $key))	
 			{
-				$extension[$key] = $value;
+				$extension[$key] = substr($key, 3); //Nur cb Id als Value
 			}
 		}
-		$_SESSION["cart"]->addItem(new CartItem($_POST["id"], $extension));
+		$shoppingCart->addItem(new CartItem($_POST["id"], $extension));
 	}
+	$_SESSION["cart"] = serialize($shoppingCart);
 
 ?>
 <script type="text/javascript">

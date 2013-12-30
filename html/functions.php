@@ -109,9 +109,9 @@
 		{
 			echo '<fieldset class="registration">';
 			echo '<legend>' .$text. '</legend>';
-			foreach($options as $optionText)
+			foreach($options as $value => $optionText)
 			{
-				echo "<input type=\"radio\" name =\"$name\" value=\"$optionText\"> $optionText</input>";
+				echo "<input type=\"radio\" name =\"$name\" value=\"$value\"> $optionText</input>";
 				echo '<br>';
 			}
 			echo '</fieldset>';

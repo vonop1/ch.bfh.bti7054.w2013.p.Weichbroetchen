@@ -22,11 +22,13 @@
 		
 		//show Shopping Card
 		public function display() {
-			echo "<table border=\"1\">";
-			echo "<tr><th>Article</th><th>Items</th></tr>";
-			foreach ($this->items as $item)
+			$language = get_param("lang", "de");
+			$texts = simplexml_load_file("./text/$language.xml");
+			$userTexts = $texts->user;
+			echo "<h1>$userTexts->Cart</h1>";
+			foreach ($this->items as $key=>$item)
 			{
-				echo "<tr>$item->display()</tr>";
+				$item->display();
 			}
 			echo "</table>";
 		}

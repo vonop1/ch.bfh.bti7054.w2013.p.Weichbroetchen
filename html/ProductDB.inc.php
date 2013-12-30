@@ -99,6 +99,12 @@ class ProductDB extends mysqli {
   		}
 	  	return null;
   	}
+
+  	//Zusatz abfragen
+  	public function getExtension($id)
+  	{
+  		return $this->query("Select * From extension WHERE ExtId = $id");
+  	}
 }
   
   ?>

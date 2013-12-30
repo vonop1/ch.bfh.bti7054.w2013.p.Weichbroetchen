@@ -20,5 +20,11 @@
 			echo "$userTexts->RegistrationLink";
 			echo "</a>";
 		echo '</li>';
+		
+		echo '<li class="user">';
+			echo "<a href=\"".changeUrl(array("idMain" => 102, "idSec" => 0))."\">";
+			echo "$userTexts->Cart";
+			echo "</a>";
+		echo '</li>';
 	?>
 </ul>
