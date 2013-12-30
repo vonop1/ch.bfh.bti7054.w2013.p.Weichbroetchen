@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 13. Dez 2013 um 12:20
+-- Erstellungszeit: 30. Dez 2013 um 10:20
 -- Server Version: 5.5.32
 -- PHP-Version: 5.4.19
 
@@ -72,7 +72,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`prodId`),
   KEY `SelectList` (`SelectList`,`CheckboxList`,`RadioList`),
   KEY `RadioList` (`RadioList`),
-  KEY `CheckboxList` (`CheckboxList`)
+  KEY `CheckboxList` (`CheckboxList`),
+  KEY `prodCategorie` (`prodCategorie`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
 
 --
@@ -80,12 +81,36 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`prodId`, `text_de`, `Image`, `SelectList`, `CheckboxList`, `RadioList`, `text_en`, `prodCategorie`) VALUES
-(1, 'Hamburger', 'images/hamburger.jpg', 1, 3, NULL, 'Hamburger', 0),
-(2, 'Cheeseburger', 'images/cheeseburger.jpg', 1, 3, NULL, 'chesseburger', 0),
-(3, 'Grüner Salat', 'images/salat.jpg', 2, NULL, NULL, 'green salad', 1),
-(4, 'Cola', 'images/cola.jpg', NULL, NULL, 4, 'Cola', 2),
-(5, 'Pommes Frites', 'images/pommes.jpg', 1, NULL, NULL, 'fries', 1),
-(6, 'Country Fries', 'images/country_fries.jpg', 1, NULL, NULL, 'country fries', 1);
+(1, 'Hamburger', 'images/hamburger.jpg', 1, 3, NULL, 'Hamburger', 1),
+(2, 'Cheeseburger', 'images/cheeseburger.jpg', 1, 3, NULL, 'chesseburger', 1),
+(3, 'Grüner Salat', 'images/salat.jpg', 2, NULL, NULL, 'green salad', 2),
+(4, 'Cola', 'images/cola.jpg', NULL, NULL, 4, 'Cola', 3),
+(5, 'Pommes Frites', 'images/pommes.jpg', 1, NULL, NULL, 'fries', 2),
+(6, 'Country Fries', 'images/country_fries.jpg', 1, NULL, NULL, 'country fries', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `productcategorie`
+--
+
+CREATE TABLE IF NOT EXISTS `productcategorie` (
+  `catId` int(11) NOT NULL AUTO_INCREMENT,
+  `text_de` varchar(50) COLLATE utf8_bin NOT NULL,
+  `text_en` varchar(50) COLLATE utf8_bin NOT NULL,
+  `defaultProd` int(11) NOT NULL,
+  PRIMARY KEY (`catId`),
+  KEY `defaultProd` (`defaultProd`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
+
+--
+-- Daten für Tabelle `productcategorie`
+--
+
+INSERT INTO `productcategorie` (`catId`, `text_de`, `text_en`, `defaultProd`) VALUES
+(1, 'Burger', 'Burger', 1),
+(2, 'Beilagen', 'Sides', 5),
+(3, 'Getränke', 'drinks', 4);
 
 --
 -- Constraints der exportierten Tabellen
@@ -95,9 +120,10 @@ INSERT INTO `product` (`prodId`, `text_de`, `Image`, `SelectList`, `CheckboxList
 -- Constraints der Tabelle `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`RadioList`) REFERENCES `extension` (`extensionCat`),
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`SelectList`) REFERENCES `extension` (`extensionCat`),
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`CheckboxList`) REFERENCES `extension` (`extensionCat`);
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`CheckboxList`) REFERENCES `extension` (`extensionCat`),
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`RadioList`) REFERENCES `extension` (`extensionCat`),
+  ADD CONSTRAINT `product_ibfk_4` FOREIGN KEY (`prodCategorie`) REFERENCES `productcategorie` (`catId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
