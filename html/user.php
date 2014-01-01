@@ -25,14 +25,18 @@ echo "<a href=\"" . changeUrl ( array (
 echo $userLink;
 echo "</a>";
 echo '</li>';
-echo '<li class="user">';
-echo "<a href=\"" . changeUrl ( array (
-		"idMain" => 101,
-		"idSec" => 0 
-) ) . "\">";
-echo "$userTexts->RegistrationLink";
-echo "</a>";
-echo '</li>';
+
+if (!isset ( $_SESSION ["user"] )) {
+	echo '<li class="user">';
+	echo "<a href=\"" . changeUrl ( array (
+			"idMain" => 101,
+			"idSec" => 0
+	) ) . "\">";
+	echo "$userTexts->RegistrationLink";
+	echo "</a>";
+	echo '</li>';
+}
+
 echo '<li class="user">';
 echo "<a href=\"" . changeUrl ( array (
 		"idMain" => 102,
@@ -41,5 +45,6 @@ echo "<a href=\"" . changeUrl ( array (
 echo "$userTexts->Cart";
 echo "</a>";
 echo '</li>';
+
 echo '</ul>';
 ?>
