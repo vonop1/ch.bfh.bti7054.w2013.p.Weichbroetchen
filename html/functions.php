@@ -1,4 +1,6 @@
 <?php 
+include ('password.php'); //password functions, needed if php version < 5.5
+
 	//lädt Klassen definitions File
   	function __autoload($class_name) { 
     	require_once($class_name.".inc.php"); 
@@ -118,5 +120,16 @@
 		}
 	}
 	
+	/**
+	 * Un-quotes a quoted string, removes html characters and html tags
+	 * @param unknown $var the string to sanitize
+	 * @return string the sanitized string
+	 */
+	function sanitizeString($var) {
+		$var = stripslashes($var);
+		$var = htmlentities($var);
+		$var = strip_tags($var);
+		return $var;
+	}	
 
 ?>

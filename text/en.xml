@@ -26,11 +26,25 @@
 			</buttons>
 	</registration>
 	<user>
-		<Username>name</Username>
-		<LoginLink>login</LoginLink>
-		<RegistrationLink>registration</RegistrationLink>
-		<Cart>shoppingcart</Cart>
+		<Username>Username</Username>
+		<LoginLink>Login</LoginLink>
+		<LogoutLink>Logout</LogoutLink>
+		<RegistrationLink>Registration</RegistrationLink>
+		<Cart>Shoppingcart</Cart>
 	</user>
+	<login>
+		<title>Login</title>
+		<error>Your username or password is wrong!</error>
+		<success>You're now logged in</success>
+		<form>
+			<username>Username</username>
+			<password>Password</password>
+		</form>
+		<buttons>
+				<send>Send</send>
+				<reset>Reset entries</reset>
+		</buttons>
+	</login>
 	<content>
 		<ChooseSauce>Choose your sauce :</ChooseSauce>
 		<ChooseSize>Choose your size:</ChooseSize>

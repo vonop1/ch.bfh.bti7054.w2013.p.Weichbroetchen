@@ -28,9 +28,23 @@
 	<user>
 		<Username>Benutzername</Username>
 		<LoginLink>Login</LoginLink>
+		<LogoutLink>Logout</LogoutLink>
 		<RegistrationLink>Registrierung</RegistrationLink>
 		<Cart>Warenkorb</Cart>
 	</user>
+	<login>
+		<title>Login</title>
+		<error>Der Benutzername oder das Passwort ist falsch!</error>
+		<success>Sie sind nun eingeloggt</success>
+		<form>
+			<username>Benutzername</username>
+			<password>Passwort</password>
+		</form>
+		<buttons>
+			<send>Abschicken</send>
+			<reset>Eingaben löschen</reset>
+		</buttons>
+	</login>
 	<content>
 		<ChooseSauce>Wählen sie Ihre Sauce :</ChooseSauce>
 		<ChooseSize>Wählen sie die gewünschte Grösse:</ChooseSize>

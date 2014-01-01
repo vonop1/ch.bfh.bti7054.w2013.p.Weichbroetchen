@@ -102,7 +102,7 @@ legend {
     padding: 4px;
 }
 
-.registration label {
+label.registration, label.login {
     display: block;
     float: left;
     width: 15em;
