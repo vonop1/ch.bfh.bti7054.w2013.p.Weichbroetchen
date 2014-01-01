@@ -27,6 +27,7 @@
 	</registration>
 	<user>
 		<Username>Username</Username>
+		<Greeting>Hello</Greeting>
 		<LoginLink>Login</LoginLink>
 		<LogoutLink>Logout</LogoutLink>
 		<RegistrationLink>Registration</RegistrationLink>

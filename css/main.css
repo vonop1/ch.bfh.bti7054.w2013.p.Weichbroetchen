@@ -89,6 +89,10 @@ p#language
 	text-align: right;	
 }
 
+p#greeting {
+	margin: 5px;
+}
+
 
 /* Forms */
 
