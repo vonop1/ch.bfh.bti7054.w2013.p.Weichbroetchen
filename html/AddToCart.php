@@ -24,10 +24,10 @@
 		}
 		foreach ($_POST as $key => $value)
 		{
-			//kontrollieren ob noch Checkboxen angewählt wurden
+			//check for active checkboxes
 			if (preg_match("/cb_.*/", $key))	
 			{
-				$extension[$key] = substr($key, 3); //Nur cb Id als Value
+				$extension[$key] = substr($key, 3); //only cb value as key
 			}
 		}
 		$shoppingCart->addItem(new CartItem($_POST["id"], $extension));

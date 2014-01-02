@@ -10,7 +10,14 @@
 		private $radio = null;
 		private $lang = "de";
 		
-		//Konstruktor
+		/**
+		 * constructor
+		 * @param mysqli $product from database
+		 * @param string $lang language to display (de or en)
+		 * @param string array $select items for selectlist
+		 * @param string array $check items for checkboxes
+		 * @param string array $radio items for radiobuttons
+		 */
 		public function __construct($product, $lang, $select, $check, $radio)
 		{
 			$this->lang = $lang;
@@ -27,7 +34,9 @@
 		}
 		
 
-		//show Product Info
+		/**
+		 * display product info's
+		 */
 		public function display() {
 			//load text elements from XML
 			$texts = simplexml_load_file("./text/$this->lang.xml");
@@ -43,9 +52,9 @@
 			echo "<p>$priceString</p>";
 			
 			echo "<form action =\"html/AddToCart.php\" method=\"post\">";
-			makeSelection("select", $this->select, $textSelect);	// Wenn vorhanden select Array als Auswahlliste anzeigen
-			makeCheckboxes($this->check, $textCheck);				// Wenn vorhanden check Array als Checkboxen ausgeben
-			makeRadio("radio", $this->radio, $textRadio);			// Wenn vorhanden radio Array als Radio buttons ausgeben
+			makeSelection("select", $this->select, $textSelect);	// if a select array exist show the list
+			makeCheckboxes($this->check, $textCheck);				// if a checkbox array exist show the boxes
+			makeRadio("radio", $this->radio, $textRadio);			// if a radio-button array exist show the buttons
 			echo "<input type=\"hidden\" name=\"id\" value=\"$this->id\">";
 			echo "<br/><input type=\"submit\" value=\"$textAddToCart\"/>";
 			echo "</form>";
