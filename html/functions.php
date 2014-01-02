@@ -1,12 +1,20 @@
 <?php 
 include ('password.php'); //password functions, needed if php version < 5.5
 
-	//lädt Klassen definitions File
+	/**
+	 * loads the class definition File
+	 * @param string $class_name, name of the class
+	 */
   	function __autoload($class_name) { 
     	require_once($class_name.".inc.php"); 
   	} 
   
-	//fragt den Parameter $name der url ab, und gibt wenn nicht definiert den Default zurück
+	/**
+	 * get value of a parameter, if not set returns default value
+	 * @param string $name of the parameter
+	 * @param string $default value to retrun if not set
+	 * @return string value of parameter
+	 */
 	function get_param($name, $default) 
 	{
 		if (isset($_GET[$name])) 
@@ -19,14 +27,25 @@ include ('password.php'); //password functions, needed if php version < 5.5
 		}
 	}
 	
-	//fügt der $url einen neuen parameter mit gegebenem Seperator  an
+	/**
+	 * add a parameter a existing url
+	 * @param string $url the already exist
+	 * @param string $name of the parameter to add
+	 * @param string $value of the parameter
+	 * @param string $sep seperator in the Url
+	 * @return string new Url
+	 */
 	function add_param($url, $name, $value, $sep="&") 
 	{
 		$new_url = $url.$sep.$name."=".urlencode($value);
 		return $new_url;
 	}
 	
-	//gerneriert aus der aktuellen URL eine neue URL mit geänderten Attributen
+	/**
+	 * generates from the actual URL, a new URL with changed attributes
+	 * @param string array $attr to change
+	 * @return string new URL
+	 */
 	function changeUrl($attr)
 	{
 		if (isset($attr["idMain"]))
@@ -64,7 +83,13 @@ include ('password.php'); //password functions, needed if php version < 5.5
 		return $url;
 	}
 
-	//generiert den HTML Code für eine Auswahlliste
+	/**
+	 * generates Html-code for a select List
+	 * @param string $name for the Html-Form
+	 * @param string array $options for the selcet List
+	 * @param string $title of the Html-Form
+	 * @param number $size, how many options to display at once
+	 */
 	function makeSelection($name, $options, $text, $size = 1)
 	{
 		if (is_array($options))
@@ -81,21 +106,29 @@ include ('password.php'); //password functions, needed if php version < 5.5
 		}
 	}
 	
-	//generiert den HTML Code für eine Option in einer Auswahlliste
+	/**
+	 * generates Html-code for a option
+	 * @param unknown $value of the Html-option
+	 * @param unknown $text to display
+	 */
 	function makeOption($value, $text)
 	{
 		echo "<option value=\"$value\">$text</option>";
 	}
 	
 
-	//generiert den HTML Code für Checkboxes
-	function makeCheckboxes($options, $text)
+	/**
+	 * generates a checkbox
+	 * @param stirng array $options for the radio-buttons
+	 * @param string $title of the Html-Form
+	 */
+	function makeCheckboxes($options, $title)
 	{
 		
 		if (is_array($options))
 		{
 			echo '<fieldset class="registration">';
-			echo '<legend>' .$text. '</legend>';
+			echo '<legend>' .$title. '</legend>';
 			foreach($options as $value => $optionText)
 			{
 				echo "<input type=\"checkbox\" name =\"cb_$value\"> $optionText</input></br>";
@@ -104,13 +137,18 @@ include ('password.php'); //password functions, needed if php version < 5.5
 		}
 	}
 
-	//generiert den HTML Code für Radio Buttons
-	function makeRadio($name, $options, $text)
+	/**
+	 * generates a radio-button choice
+	 * @param string $name of the the Html-Form
+	 * @param stirng array $options for the radio-buttons
+	 * @param string $title of the Html-Form
+	 */
+	function makeRadio($name, $options, $title)
 	{
 		if (is_array($options))
 		{
 			echo '<fieldset class="registration">';
-			echo '<legend>' .$text. '</legend>';
+			echo '<legend>' .$title. '</legend>';
 			foreach($options as $value => $optionText)
 			{
 				echo "<input type=\"radio\" name =\"$name\" value=\"$value\"> $optionText</input>";
