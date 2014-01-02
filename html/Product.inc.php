@@ -22,6 +22,7 @@
 			$this->select = $select;
 			$this->radio = $radio;
 			$this->check = $check;
+			$this->price = $product->prize;
 			
 		}
 		
@@ -38,6 +39,8 @@
 			
 			echo "<h2>".$this->prodName."</h2>";
 			echo "<img src=\"$this->image\" alt=\"$this->image\" class=\"content\"/>";
+			$priceString = 'Fr. '.number_format($this->price, 2,".","'");
+			echo "<p>$priceString</p>";
 			
 			echo "<form action =\"html/AddToCart.php\" method=\"post\">";
 			makeSelection("select", $this->select, $textSelect);	// Wenn vorhanden select Array als Auswahlliste anzeigen
