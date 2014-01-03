@@ -18,19 +18,21 @@
 		 * @param string array $check items for checkboxes
 		 * @param string array $radio items for radiobuttons
 		 */
-		public function __construct($product, $lang, $select, $check, $radio)
+		public function __construct($productId, $lang)
 		{
+			$productDb = new ProductDB();
+			$res = $productDb->getProduct($productId);
+			$product = $res->fetch_object();
+			$this->select =$productDb->getProductSelectExt($productId, $lang);
+			$this->check = $productDb->getProductCheckExt($productId, $lang);
+			$this->radio = $productDb->getProductRadioExt($productId, $lang);
 			$this->lang = $lang;
 			$text = "text_$lang";
 			$this->id = $product->prodId;
 			$text = "text_$lang";
 			$this->prodName = $product->$text;
 			$this->image = $product->Image;
-			$this->select = $select;
-			$this->radio = $radio;
-			$this->check = $check;
 			$this->price = $product->prize;
-			
 		}
 		
 

@@ -93,6 +93,15 @@ p#greeting {
 	margin: 5px;
 }
 
+div.cartitem
+{
+	margin-left: 20px;
+}
+p.cartitem
+{
+	margin-top: 20px;
+	font-weight: bold;
+}
 
 /* Forms */
 

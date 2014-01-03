@@ -30,7 +30,22 @@
 			{
 				$item->display();
 			}
-			echo "</table>";
+			$priceString = 'Fr. '.number_format($this->calcPrice(), 2,".","'");
+			echo "<p class=\"cartitem\">Total: $priceString</p>";
+		}
+		
+		/**
+		 * calc the price of the hole Cart
+		 * @return number
+		 */
+		public function calcPrice()
+		{
+			$total = 0;
+			foreach ($this->items as $item)
+			{
+				$total += $item->getPrice();
+			}
+			return $total;
 		}
 	}
 ?>
