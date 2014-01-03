@@ -76,5 +76,37 @@ class CartItem
 	{
 		return $this->price;
 	}
+
+	/**
+	 * displays the cartitem with extension
+	 */
+	public function printCartItem ($pdf)
+	{
+		$prodDB = new ProductDB();
+		$res = $prodDB->getProduct($this->prodId);
+	
+		if ($prod = $res->fetch_object())
+		{
+			$text = "text_". get_Param("lang","de");
+			$totalPrice = $prod->prize;
+			$pdf->Cell(0,10,$prod->$text); 
+  			$pdf->Ln(); 
+			foreach ($this->extensions as $extension)
+			{
+				$res = $prodDB->getExtension($extension);
+				if ($ext = $res->fetch_object())
+				{
+		 			$pdf->SetFont('Arial', 'B' ,12); // 'B' = Bold 
+		 			$pdf->SetFont('');
+					$pdf->Cell(0, 0,$ext->$text); 
+  					$pdf->Ln(); 
+				}
+			}
+			$priceString = 'Fr. '.number_format($this->getPrice(), 2,".","'");
+			$pdf->Cell(0,10,$priceString); 
+  			$pdf->Ln(); 
+		}
+	
+	}
 }
 ?>

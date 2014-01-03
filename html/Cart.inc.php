@@ -1,4 +1,6 @@
 <?php
+	require ('fpdf.php');
+
 	class Cart {
 
 		private $items = array();
@@ -20,7 +22,9 @@
 			else return false;
 		}
 		
-		//show Shopping Card
+		/**
+		 * generate HTML-code to display the shopping-cart
+		 */
 		public function display() {
 			$language = get_param("lang", "de");
 			$texts = simplexml_load_file("./text/$language.xml");
@@ -46,6 +50,24 @@
 				$total += $item->getPrice();
 			}
 			return $total;
+		}
+
+		/**
+		 * generate HTML-code to display the shopping-cart
+		 */
+		public function printCart() 
+		{
+
+			$pdf=new pdfCart('P','mm','A4'); // 'P' = Portrait
+			$pdf->AliasNbPages('#p');
+			$pdf->SetAutoPageBreak(true,50);
+		 	$pdf->AddPage(); 
+		 	$pdf->SetFont('Arial','B',16); // 'B' = Bold 
+			foreach ($this->items as $key=>$item)
+			{
+				$item->printCartItem($pdf);
+			}
+		 	$pdf->Output("test.pdf","I"); 
 		}
 	}
 ?>
