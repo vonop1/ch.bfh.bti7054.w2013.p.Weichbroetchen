@@ -29,6 +29,7 @@
 			$language = get_param("lang", "de");
 			$texts = simplexml_load_file("./text/$language.xml");
 			$userTexts = $texts->user;
+			$cartTexts = $texts->cart;
 			echo "<h1>$userTexts->Cart</h1>";
 			foreach ($this->items as $key=>$item)
 			{
@@ -36,6 +37,10 @@
 			}
 			$priceString = 'Fr. '.number_format($this->calcPrice(), 2,".","'");
 			echo "<p class=\"cartitem\">Total: $priceString</p>";
+			echo "<form>";
+			echo "<input type=\"submit\" value=\"$cartTexts->send\"/>";
+			echo "<input type=\"submit\" value=\"$cartTexts->print\"/>";
+			echo "</form>";
 		}
 		
 		/**

@@ -52,4 +52,8 @@
 		<ChooseExtra>Wählen sie Ihre Extras:</ChooseExtra>
 		<AddToCart>Zum Warenkorb hinzufügen</AddToCart>
 	</content>
+	<cart>
+		<send>Bestellen</send>
+		<print>Warenkorb drucken</print>
+	</cart>
 </texts>

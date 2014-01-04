@@ -19,6 +19,12 @@
 				$shoppingCart = unserialize($_SESSION["cart"]);
 				$shoppingCart->display();
 			}
+			else 
+			{
+				$shoppingCart = new Cart();
+				$shoppingCart->display();
+				$_SESSION["cart"] = serialize($shoppingCart);
+			}
 			break;
 			
 		default:

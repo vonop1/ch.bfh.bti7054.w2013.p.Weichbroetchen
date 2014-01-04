@@ -52,4 +52,8 @@
 		<ChooseExtra>Choose your extras:</ChooseExtra>
 		<AddToCart>Add To Cart</AddToCart>
 	</content>
+	<cart>
+		<send>order</send>
+		<print>print cart</print>
+	</cart>
 </texts>
