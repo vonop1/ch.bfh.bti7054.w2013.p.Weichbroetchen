@@ -6,8 +6,7 @@ session_start();
 include_once ('functions.php');
 include('UserDB.inc.php');
 
-// set the language and load texts for choosen language
-$language = get_param ( "lang", "de" );
+//load texts for choosen language
 $texts = simplexml_load_file ( "./text/$language.xml" );
 $loginTexts = $texts->login;
 

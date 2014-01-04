@@ -15,7 +15,7 @@ class UserDB extends mysqli {
 	
 	/**
 	 * get all data for a specific user from database
-	 * @param unknown $username the user to get the data from
+	 * @param string $username the user to get the data from
 	 */
 	public function getSpecificUser($username) {
 		$query = "SELECT * FROM user WHERE Username = '$username'";
@@ -24,16 +24,16 @@ class UserDB extends mysqli {
 	
 	/**
 	 * create new user in database with given data
-	 * @param unknown $username
-	 * @param unknown $password
-	 * @param unknown $firstname
-	 * @param unknown $lastname
-	 * @param unknown $street
-	 * @param unknown $streetNo
-	 * @param unknown $zip
-	 * @param unknown $city
-	 * @param unknown $phone
-	 * @param unknown $email
+	 * @param string $username
+	 * @param string $password
+	 * @param string $firstname
+	 * @param string $lastname
+	 * @param string $street
+	 * @param string $streetNo
+	 * @param string $zip
+	 * @param string $city
+	 * @param string $phone
+	 * @param string $email
 	 */
 	public function insertUser($username, $password, $firstname, $lastname, $street, $streetNo, $zip, $city, $phone, $email) {
 		$query = "INSERT INTO user (Username, Password, Firstname, Lastname, Street, StreetNo, ZIP, City, Phone, Email) VALUES ('$username', '$password', '$firstname', '$lastname', '$street', '$streetNo', '$zip', '$city', '$phone', '$email')";

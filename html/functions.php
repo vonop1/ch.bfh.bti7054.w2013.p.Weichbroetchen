@@ -1,6 +1,10 @@
 <?php 
 include ('password.php'); //password functions, needed if php version < 5.5
 
+// set variables that are needed in all files
+$language = get_param ("lang", "de");
+$texts = "text_$language";
+
 	/**
 	 * loads the class definition File
 	 * @param string $class_name, name of the class
@@ -160,7 +164,7 @@ include ('password.php'); //password functions, needed if php version < 5.5
 	
 	/**
 	 * Un-quotes a quoted string, removes html characters and html tags
-	 * @param unknown $var the string to sanitize
+	 * @param string $var the string to sanitize
 	 * @return string the sanitized string
 	 */
 	function sanitizeString($var) {

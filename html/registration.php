@@ -2,9 +2,8 @@
 include_once ('functions.php');
 include('UserDB.inc.php');
 
-// set the language and load texts for choosen language
-$language = get_param ( "lang", "de" );
-$texts = simplexml_load_file ( "./text/$language.xml" );
+//load texts for choosen language
+$texts = simplexml_load_file("./text/$language.xml");
 $registrationTexts = $texts->registration;
 
 // set title texts

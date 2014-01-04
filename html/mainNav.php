@@ -1,35 +1,21 @@
 <?php
-	include_once ('functions.php');
-	
-	$prodDb = new ProductDB();
-	$items = $prodDb->getAllCategories();
-	
-	$lang = get_param("lang", "de");
+include_once ('functions.php');
 
-
-	function language()
-	{
-		//Sprach umstellung
-		echo "<a href=\"".changeUrl(array ("lang"=>"de"))."\">DE</a> |";
-		echo "<a href=\"".changeUrl(array ("lang"=>"en"))."\">EN</a>";
-	}
-
-	echo "<ul>";
-
-	$text = "text_$lang";
-	while ($item = $items->fetch_object())
-	{
-		//Alle Elemente der Liste als mainNav Liste anzeigen
-		echo '<li class="mainNav">';
-			echo "<a href=\"".changeUrl(array("idMain"=> $item->catId, "idSec"=> $item->defaultProd))."\">";
-				echo $item->$text;
-			echo "</a>";						
-		echo '</li>';
-	}
+//get the product categories from database
+$prodDb = new ProductDB();
+$items = $prodDb->getAllCategories();
 	
-	echo '</ul>';
-	echo '<p id="language">';
-	
-	language();
-	
-	echo '</p>';
+//create main navigation with elements from the db
+echo "<ul>";
+while ($item = $items->fetch_object()){
+	echo '<li class="mainNav"><a href="' .changeUrl(array("idMain"=> $item->catId, "idSec"=> $item->defaultProd)). '">' .$item->$texts. '</a></li>';
+}
+echo '</ul>';
+
+// create links to change site language
+echo '<p id="language">';
+echo "<a href=\"".changeUrl(array ("lang"=>"de"))."\">DE</a> |";
+echo "<a href=\"".changeUrl(array ("lang"=>"en"))."\">EN</a>";
+echo '</p>';
+
+?>
