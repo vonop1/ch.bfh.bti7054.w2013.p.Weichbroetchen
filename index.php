@@ -26,7 +26,7 @@
 				<?php include("html/user.php");?>
 			</div>
 			<div id="footer">
-				<p>Footer</p>
+				<p>&copy;2013 bohnp1, vonop1</p>
 			</div>
 		</div>
 	</body>
