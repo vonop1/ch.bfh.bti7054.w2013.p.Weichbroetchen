@@ -55,8 +55,8 @@ if(isset($_POST["submit"])) {
 		if ($isPasswordCorrect) {
 			$_SESSION["user"]= $username;
 			echo '<p>' .$loginSuccess. '</p>';
-			sleep(2);
-			echo '<meta http-equiv="refresh" content="0; url=http://localhost/weichbroetchen">';
+			//sleep(2);
+			//echo '<meta http-equiv="refresh" >';//content="0; url=http://localhost/weichbroetchen">';
 		}else{
 			$isLoginError = true;
 		}
