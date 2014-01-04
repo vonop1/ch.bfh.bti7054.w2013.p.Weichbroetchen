@@ -55,5 +55,6 @@
 	<cart>
 		<send>order</send>
 		<print>print cart</print>
+		<confirm>confirm your order</confirm>
 	</cart>
 </texts>

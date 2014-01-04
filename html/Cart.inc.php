@@ -1,6 +1,6 @@
 <?php
 	require ('fpdf.php');
-
+	
 	class Cart {
 
 		private $items = array();
@@ -37,9 +37,9 @@
 			}
 			$priceString = 'Fr. '.number_format($this->calcPrice(), 2,".","'");
 			echo "<p class=\"cartitem\">Total: $priceString</p>";
-			echo "<form>";
+			$confirmText =$cartTexts->confirm;
+			echo "<form name=\"finishOrder\" action=\"html/FinishOrder.php\" onsubmit=\"return confirm('$cartTexts->confirm')\">";
 			echo "<input type=\"submit\" value=\"$cartTexts->send\"/>";
-			echo "<input type=\"submit\" value=\"$cartTexts->print\"/>";
 			echo "</form>";
 		}
 		
