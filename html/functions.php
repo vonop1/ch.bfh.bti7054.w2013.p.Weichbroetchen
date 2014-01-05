@@ -16,7 +16,7 @@ $texts = "text_$language";
 	/**
 	 * get value of a parameter, if not set returns default value
 	 * @param string $name of the parameter
-	 * @param string $default value to retrun if not set
+	 * @param string $default value to return if not set
 	 * @return string value of parameter
 	 */
 	function get_param($name, $default) 

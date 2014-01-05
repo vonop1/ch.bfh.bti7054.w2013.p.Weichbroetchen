@@ -32,6 +32,7 @@
 		<LogoutLink>Logout</LogoutLink>
 		<RegistrationLink>Registrierung</RegistrationLink>
 		<Cart>Warenkorb</Cart>
+		<Account>Benutzerdaten</Account>
 	</user>
 	<login>
 		<title>Login</title>

@@ -1,6 +1,5 @@
 <?php
 include_once ('functions.php');
-include('UserDB.inc.php');
 
 //load texts for choosen language
 $texts = simplexml_load_file("./text/$language.xml");
@@ -31,35 +30,32 @@ if (isset($_POST['submit'])){
 	
 	//get form data
 	$username = sanitizeString($_POST['username']);
-	$firstname = sanitizeString($_POST['firstname']);
-	$lastname = sanitizeString($_POST['lastname']);
-	$street = sanitizeString($_POST['street']);
-	$streetNo = sanitizeString($_POST['streetNumber']);
-	$zip = sanitizeString($_POST['ZIP']);
-	$city = sanitizeString($_POST['city']);
-	$phone = sanitizeString($_POST['phone']);
-	$email = sanitizeString($_POST['email']);
-	$password = $_POST['password'];
+	$userRow = array("Username" => $username,
+			"Password" => password_hash($_POST['password'], PASSWORD_BCRYPT), // hash and salt the entered password
+			"Firstname" => sanitizeString($_POST['firstname']),
+			"Lastname" => sanitizeString($_POST['lastname']),
+			"Street" => sanitizeString($_POST['street']),
+			"StreetNo" => sanitizeString($_POST['streetNumber']),
+			"ZIP" => sanitizeString($_POST['ZIP']),
+			"City" => sanitizeString($_POST['city']),
+			"Phone" => sanitizeString($_POST['phone']),
+			"Email" => sanitizeString($_POST['email']));
 	
-	// hash and salt the entered password
-	$cryptedPW = password_hash($password, PASSWORD_BCRYPT);
-	
-	//check if user already exists in database, if so display error message, else create new user
-	$userDB = new UserDB();
-	$query = $userDB->getSpecificUser(strtolower($username));
-	if($query->num_rows == 0){
-		$userDB->insertUser($username, $cryptedPW, $firstname, $lastname, $street, $streetNo, $zip, $city, $phone, $email);
+	//create new User and show success/error message
+	$user = User::withRow($userRow);
+	$user->createUser();
+	if($user->getRegError()){
+		if ($language == "en"){
+			echo '<p>Username: ' .$username. ' is already taken. Please choose something else</p>';
+		}else{
+			echo '<p>Benutzername: ' .$username. ' ist bereits vergeben. Bitte wählen Sie einen anderen Namen</p>';
+		}
+	}else{
 		if ($language == "en"){
 			echo '<p>User: ' .$username. ' was created. You\'re now able to login</p>';
 		}else{
 			echo '<p>User: ' .$username. ' wurde erstellt. Sie können sich nun einloggen</p>';
 		}
-	}else{
-		if ($language == "en"){
-			echo '<p>Username: ' .$username. ' is already taken. Please choose something else</p>';
-		}else{
-			echo '<p>Benutzername: ' .$username. ' ist bereits vergeben. Bitte wählen Sie einen anderen Namen</p>';
-		}	
 	}
 
 }else{ // display the registration form

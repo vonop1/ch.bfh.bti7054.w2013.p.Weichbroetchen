@@ -12,6 +12,7 @@ if (isset ( $_SESSION ["user"] )) {
 	echo '<ul>';
 	echo '<li class="user"><a href="' .changeUrl(array("idMain" => 100, "idSec" => 0)). '">' .$userTexts->LogoutLink. '</a></li>';
 	echo '<li class="user"><a href="' .changeUrl(array("idMain" => 102, "idSec" => 0)). '">' .$userTexts->Cart. '</a></li>';
+	echo '<li class="user"><a href="' .changeUrl(array("idMain" => 103, "idSec" => 0)). '">' .$userTexts->Account. '</a></li>';
 	echo '</ul>';
 }else{
 	echo '<ul>';

@@ -4,16 +4,13 @@
 	
 	switch ($idMain)
 	{
-		case 100: 
-			// Login
+		case 100: // Login
 			include_once 'login.php';
 			break;
-		case 101:
-			// Registrierung
+		case 101: // Registration
 			include_once 'registration.php';
 			break;
-		case 102:
-			// Warenkorb
+		case 102: // Cart
 			if(isset($_SESSION["cart"]))
 			{
 				$shoppingCart = unserialize($_SESSION["cart"]);
@@ -26,7 +23,9 @@
 				$_SESSION["cart"] = serialize($shoppingCart);
 			}
 			break;
-			
+		case 103: // Account
+			include_once 'account.php';
+			break;		
 		default:
 			$lang = get_param("lang", "de");
 			$prod = new Product($idSec, $lang);
