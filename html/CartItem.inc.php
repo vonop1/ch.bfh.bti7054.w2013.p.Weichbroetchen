@@ -42,7 +42,7 @@ class CartItem
 		
 		if ($prod = $res->fetch_object())
 		{
-			$text = "text_". get_Param("lang","de");
+			$text = "text_". getLanguage();
 			$totalPrice = $prod->prize;
 			echo '<div>';
 			echo '<h2>';
@@ -87,7 +87,7 @@ class CartItem
 	
 		if ($prod = $res->fetch_object())
 		{
-			$text = "text_". get_Param("lang","de");
+			$text = "text_". getLanguage();
 			$totalPrice = $prod->prize;
 			$pdf->Cell(0,10,$prod->$text); 
   			$pdf->Ln(); 

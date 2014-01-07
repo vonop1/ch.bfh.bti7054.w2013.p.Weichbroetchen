@@ -2,7 +2,7 @@
 include ('password.php'); //password functions, needed if php version < 5.5
 
 // set variables that are needed in all files
-$language = get_param ("lang", "de");
+$language = getLanguage();
 $texts = "text_$language";
 
 	/**
@@ -70,19 +70,9 @@ $texts = "text_$language";
 			$idSec = get_param("idSec", 1);
 		}
 		
-		if (isset($attr["lang"]))
-		{
-			$language = $attr["lang"];
-		}
-		else 
-		{
-			$language = get_param("lang", "de");
-		}
-		
 		$url = $_SERVER['PHP_SELF'];
 		$url = add_param($url,"idMain",$idMain,"?");
 		$url = add_param($url,"idSec",$idSec);
-		$url = add_param($url, "lang", $language);
 		
 		return $url;
 	}
@@ -174,4 +164,19 @@ $texts = "text_$language";
 		return $var;
 	}	
 
+	/**
+	 * Returns the selected language
+	 * @return string de or en for selected language
+	 */
+	function getLanguage()
+	{
+		if (isset($_COOKIE["lang"]))
+		{
+			return $_COOKIE["lang"];
+		}
+		else
+		{
+			return "de";
+		}
+	}
 ?>

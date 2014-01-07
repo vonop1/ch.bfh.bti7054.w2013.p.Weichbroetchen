@@ -14,8 +14,8 @@ echo '</ul>';
 
 // create links to change site language
 echo '<p id="language">';
-echo "<a href=\"".changeUrl(array ("lang"=>"de"))."\">DE</a> |";
-echo "<a href=\"".changeUrl(array ("lang"=>"en"))."\">EN</a>";
+echo '<a href ="." onClick="document.cookie = \'lang = de;\';">DE</a> |';
+echo '<a href ="." onClick="document.cookie = \'lang = en;\';">EN</a>';
 echo '</p>';
 
 ?>

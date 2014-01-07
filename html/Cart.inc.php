@@ -26,7 +26,7 @@
 		 * generate HTML-code to display the shopping-cart
 		 */
 		public function display() {
-			$language = get_param("lang", "de");
+			$language = getLanguage();
 			$texts = simplexml_load_file("./text/$language.xml");
 			$userTexts = $texts->user;
 			$cartTexts = $texts->cart;

@@ -2,7 +2,7 @@
 include_once ('functions.php');
 
 // set the language and load texts for choosen language
-$language = get_param ("lang", "de");
+$language = getLanguage();
 $texts = simplexml_load_file("./text/$language.xml");
 $userTexts = $texts->user;
 

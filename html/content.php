@@ -27,7 +27,7 @@
 			include_once 'account.php';
 			break;		
 		default:
-			$lang = get_param("lang", "de");
+			$lang = getLanguage();
 			$prod = new Product($idSec, $lang);
 			$prod->display();
 			break;
