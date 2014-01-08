@@ -19,6 +19,7 @@
 				<main>Registration</main>
 				<userReg>Contact data</userReg>
 				<finish>Finish</finish>
+				<location>Your origin (IP-address and country) will be saved by registration:</location>
 			</titles>
 			<buttons>
 				<send>Send</send>

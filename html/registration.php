@@ -1,5 +1,6 @@
 <?php
 include_once ('functions.php');
+include_once ('GeoIPLocator.php');
 
 //load texts for choosen language
 $texts = simplexml_load_file("./text/$language.xml");
@@ -10,6 +11,10 @@ $titleTexts = $registrationTexts->titles;
 $mainTitle = $titleTexts->main;
 $userRegTitle = $titleTexts->userReg;
 $finishTitle = $titleTexts->finish;
+
+//get IP address and set location text
+$locationText = $titleTexts->location;
+$ipAddress = $_SERVER['REMOTE_ADDR'];
 
 // set input field texts
 $formTexts = $registrationTexts->form;
@@ -84,6 +89,7 @@ if (isset($_POST['submit'])){
 	echo '<input class="buttons" id="reset" type="reset" value="' . $resetValue . '"></input>';
 	echo '</fieldset>';
 	echo '</form>';
+	echo '<p>' .$locationText. ' ' .$ipAddress. ', ' .getGeoCountryWithWS($ipAddress). '</p>';
 }
 
 ?>

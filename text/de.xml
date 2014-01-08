@@ -19,6 +19,7 @@
 			<main>Registration</main>
 			<userReg>Kontaktangaben</userReg>
 			<finish>Abschliessen</finish>
+			<location>Ihre Herkunft (IP-Adresse und Land) wird bei der Registrierung gespeichert:</location>
 		</titles>
 		<buttons>
 			<send>Abschicken</send>
