@@ -58,5 +58,6 @@
 		<send>order</send>
 		<print>print cart</print>
 		<confirm>confirm your order</confirm>
+		<remove>remove product</remove>
 	</cart>
 </texts>

@@ -53,11 +53,11 @@
 			$priceString = 'Fr. '.number_format($this->price, 2,".","'");
 			echo "<p>$priceString</p>";
 			
-			echo "<form action =\"html/AddToCart.php\" method=\"post\">";
+			echo "<form action =\"\" method=\"post\">";
 			makeSelection("select", $this->select, $textSelect);	// if a select array exist show the list
 			makeCheckboxes($this->check, $textCheck);				// if a checkbox array exist show the boxes
 			makeRadio("radio", $this->radio, $textRadio);			// if a radio-button array exist show the buttons
-			echo "<input type=\"hidden\" name=\"id\" value=\"$this->id\">";
+			echo "<input type=\"hidden\" name=\"idToAdd\" value=\"$this->id\">";
 			echo "<br/><input type=\"submit\" value=\"$textAddToCart\"/>";
 			echo "</form>";
 		}

@@ -58,5 +58,6 @@
 		<send>Bestellen</send>
 		<print>Warenkorb drucken</print>
 		<confirm>Wollen Sie die Bestellung wirklich abschicken?</confirm>
+		<remove>Produkt löschen</remove>
 	</cart>
 </texts>

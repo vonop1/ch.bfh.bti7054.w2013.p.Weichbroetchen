@@ -5,7 +5,6 @@
 		<title>Weichbrötchen</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<script type="text/javascript" src="script/formValidation.js"></script>
-		<script type="text/javascript" src="script/util.js"></script>
 		<script type="text/javascript" src="script/cart.js"></script>
 	</head>
 	<body>

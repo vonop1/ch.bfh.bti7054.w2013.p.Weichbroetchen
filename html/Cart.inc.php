@@ -13,7 +13,7 @@
 		}
 		
 		//remove a item from card
-		public function removeItem() {
+		public function removeItem($item) {
 			if (isset($this->items[$item])) 
 			{ 
 				unset($this->items[$item]);
@@ -30,16 +30,23 @@
 			$texts = simplexml_load_file("./text/$language.xml");
 			$userTexts = $texts->user;
 			$cartTexts = $texts->cart;
+			$removeText = utf8_decode($cartTexts->remove);
 			echo "<h1>$userTexts->Cart</h1>";
 			foreach ($this->items as $key=>$item)
 			{
 				$item->display();
+
+				echo "<form action =\"\" method=\"post\">";
+				echo "<input type=\"hidden\" name=\"itemToRemove\" value=\"$key\">";
+				echo "<br/><input type=\"submit\" value=\"$removeText\"/>";
+				echo "</form>";
 			}
 			$priceString = 'Fr. '.number_format($this->calcPrice(), 2,".","'");
 			echo "<p class=\"cartitem\">Total: $priceString</p>";
 			$confirmText =$cartTexts->confirm;
 			echo "<form name=\"finishOrder\" action=\"html/FinishOrder.php\" onsubmit=\"return confirm('$cartTexts->confirm')\">";
 			echo "<input type=\"submit\" value=\"$cartTexts->send\"/>";
+			echo "<input type=\"button\" onclick=\"openPdf();\" value=\"$cartTexts->print\">";
 			echo "</form>";
 		}
 		

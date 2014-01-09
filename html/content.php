@@ -2,6 +2,7 @@
 	$idMain = (get_param("idMain", 0));
 	$idSec = (get_param("idSec", 1));
 	
+	processHttpRequests();
 	switch ($idMain)
 	{
 		case 100: // Login
@@ -32,5 +33,48 @@
 			$prod->display();
 			break;
 	
+	}
+	
+	function processHttpRequests()
+	{
+
+		if (isSet($_SESSION["cart"]))
+		{
+			$shoppingCart = unserialize($_SESSION["cart"]);
+		}
+		else
+		{
+			$shoppingCart = new Cart();
+		}
+		
+		//Add new items to shopping Cart
+		if (isSet($_POST["idToAdd"]))
+		{
+			$extension = array();
+			if (isSet($_POST["select"]))
+			{
+				$extension["select"] = $_POST["select"];
+			}
+			if (isSet($_POST["radio"]))
+			{
+				$extension["radio"] = $_POST["radio"];
+			}
+			foreach ($_POST as $key => $value)
+			{
+				//check for active checkboxes
+				if (preg_match("/cb_.*/", $key))
+				{
+					$extension[$key] = substr($key, 3); //only cb value as key
+				}
+			}
+			$shoppingCart->addItem(new CartItem($_POST["idToAdd"], $extension));
+		}
+		
+		//remove items from shopping Cart
+		if (isSet($_POST["itemToRemove"]))
+		{
+			$shoppingCart->removeItem($_POST["itemToRemove"]);
+		}
+		$_SESSION["cart"] = serialize($shoppingCart);
 	}
 ?>
