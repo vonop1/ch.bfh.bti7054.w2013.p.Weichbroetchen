@@ -5,7 +5,7 @@
 	{ 
 		function Header() 
 		{
-			$language = get_param("lang", "de");
+			$language = getLanguage();
 			$texts = simplexml_load_file("../text/$language.xml");
 			$userTexts = $texts->user;
 	      	//$this->Image('logo.png', $this->lMargin, 2, 25, 16); 
