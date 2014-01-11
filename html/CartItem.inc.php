@@ -89,6 +89,7 @@ class CartItem
 		{
 			$text = "text_". getLanguage();
 			$totalPrice = $prod->prize;
+ 			$pdf->SetFont('Arial', 'B' ,14); // 'B' = Bold 
 			$pdf->Cell(0,10,$prod->$text); 
   			$pdf->Ln(); 
 			foreach ($this->extensions as $extension)
@@ -98,7 +99,7 @@ class CartItem
 				{
 		 			$pdf->SetFont('Arial', 'B' ,12); // 'B' = Bold 
 		 			$pdf->SetFont('');
-					$pdf->Cell(0, 0,$ext->$text); 
+					$pdf->Cell(0, 5 ,$ext->$text); 
   					$pdf->Ln(); 
 				}
 			}

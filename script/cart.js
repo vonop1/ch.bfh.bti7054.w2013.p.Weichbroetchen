@@ -1,7 +1,7 @@
 /**
  * 
  */
-function confirm(text)
+function confirmOrder(text)
 {
 	var retrunVal = window.confirm(text);
 	return retrunVal;	

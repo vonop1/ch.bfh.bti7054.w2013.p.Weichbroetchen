@@ -53,6 +53,7 @@
 		<ChooseSize>Choose your size:</ChooseSize>
 		<ChooseExtra>Choose your extras:</ChooseExtra>
 		<AddToCart>Add To Cart</AddToCart>
+		<LoginNeed>for make an order you have to login</LoginNeed>
 	</content>
 	<cart>
 		<send>order</send>

@@ -43,10 +43,9 @@
 			}
 			$priceString = 'Fr. '.number_format($this->calcPrice(), 2,".","'");
 			echo "<p class=\"cartitem\">Total: $priceString</p>";
-			$confirmText =$cartTexts->confirm;
-			echo "<form name=\"finishOrder\" action=\"html/FinishOrder.php\" onsubmit=\"return confirm('$cartTexts->confirm')\">";
+			echo "<form name=\"finishOrder\"  method=\"post\" onSubmit=\"return confirmOrder('$cartTexts->confirm');\" action=\"\" >";
 			echo "<input type=\"submit\" value=\"$cartTexts->send\"/>";
-			echo "<input type=\"button\" onclick=\"openPdf();\" value=\"$cartTexts->print\">";
+			echo "<input type=\"button\" onclick=\"openPdf();\" value=\"$cartTexts->print\"/>";
 			echo "</form>";
 		}
 		
@@ -79,6 +78,9 @@
 			{
 				$item->printCartItem($pdf);
 			}
+			$pdf->SetFont('Arial','B',14); // 'B' = Bold
+			$priceString = 'Total : Fr. '.number_format($this->calcPrice(), 2,".","'");
+			$pdf->Cell(0,10,$priceString); 
 		 	$pdf->Output("test.pdf","I"); 
 		}
 	}

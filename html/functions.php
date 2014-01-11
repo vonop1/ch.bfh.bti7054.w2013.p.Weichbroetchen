@@ -143,10 +143,19 @@ $texts = "text_$language";
 		{
 			echo '<fieldset class="registration">';
 			echo '<legend>' .$title. '</legend>';
+			$selected = true;
 			foreach($options as $value => $optionText)
 			{
-				echo "<input type=\"radio\" name =\"$name\" value=\"$value\"> $optionText</input>";
+				if ($selected)
+				{
+					echo "<input type=\"radio\" name =\"$name\" value=\"$value\" checked> $optionText</input>";
+				}
+				else 
+				{
+					echo "<input type=\"radio\" name =\"$name\" value=\"$value\"> $optionText</input>";					
+				}
 				echo '<br>';
+				$selected = false;
 			}
 			echo '</fieldset>';
 		}

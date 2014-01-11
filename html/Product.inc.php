@@ -47,6 +47,7 @@
 			$textSelect = utf8_decode($contenttexts->ChooseSauce);
 			$textRadio = utf8_decode($contenttexts->ChooseSize);
 			$textCheck = utf8_decode($contenttexts->ChooseExtra);
+			$textLoginNeed = utf8_decode($contenttexts->LoginNeed);
 			
 			echo "<h2>".$this->prodName."</h2>";
 			echo "<img src=\"$this->image\" alt=\"$this->image\" class=\"content\"/>";
@@ -57,9 +58,16 @@
 			makeSelection("select", $this->select, $textSelect);	// if a select array exist show the list
 			makeCheckboxes($this->check, $textCheck);				// if a checkbox array exist show the boxes
 			makeRadio("radio", $this->radio, $textRadio);			// if a radio-button array exist show the buttons
-			echo "<input type=\"hidden\" name=\"idToAdd\" value=\"$this->id\">";
-			echo "<br/><input type=\"submit\" value=\"$textAddToCart\"/>";
-			echo "</form>";
+			if (isset($_SESSION["user"]))
+			{
+				echo "<input type=\"hidden\" name=\"idToAdd\" value=\"$this->id\">";
+				echo "<br/><input type=\"submit\" value=\"$textAddToCart\"/>";
+				echo "</form>";
+			}
+			else
+			{
+				echo "</br>$textLoginNeed";	
+			}
 		}
 		
 	}
