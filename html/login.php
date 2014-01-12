@@ -52,10 +52,9 @@ if(isset($_POST["submit"])) {
 		
 		//start session for user or set login error
 		if ($isPasswordCorrect) {
-			$_SESSION["user"]= $username;
+			$user = User::withUsername($username);
+			$_SESSION["user"]= serialize($user);
 			echo '<p>' .$loginSuccess. '</p>';
-			//sleep(2);
-			//echo '<meta http-equiv="refresh" >';//content="0; url=http://localhost/weichbroetchen">';
 		}else{
 			$isLoginError = true;
 		}
@@ -72,7 +71,7 @@ if (!isset($_SESSION["user"]) || $isLoginError) {
 		$childName = $child->getName ();
 		echo '<label class="login" accesskey="' . $accesskey . '" for="' . $childName . '">' . $child . '</label>';
 		if ($childName == "password") {
-			echo '<input type="password" id="' . $childName . '" name="' . $childName . '" size="' . $inputSize . '"></input>';
+			echo '<input type="password" id="' . $childName . '" name="' . $childName . '" size="' . $inputSize . '" class="input"></input>';
 		} else {
 			echo '<input id="' . $childName . '" name="' . $childName . '" size="' . $inputSize . '" class="input"></input>';
 		}

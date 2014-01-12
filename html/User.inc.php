@@ -90,6 +90,14 @@ class User{
 	}
 	
 	/**
+	 * Getter for username
+	 * @return string the username
+	 */
+	public function getUsername(){
+		return $this->username;
+	}
+	
+	/**
 	 * Getter for registration error userRegError
 	 * @return boolean True if there was an error.
 	 */
