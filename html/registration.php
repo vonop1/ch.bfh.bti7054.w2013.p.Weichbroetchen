@@ -1,60 +1,8 @@
-<script type="text/javascript">
+<script type="text/javascript" src="script/formValidation.js"></script>
 
-	function checkIfEmpty(value, target){
-		if (value == ""){
-			if (target == "streetNumber"){
-				document.getElementById(target).className = "inputOK";
-			}else{
-				document.getElementById(target).className = "inputError";
-			}
-		}
-		
-		//check if there are still errors, if not enable submit form
-		var submit = document.getElementById("submit");
-		var inputArr = document.getElementsByClassName("inputError");
-		if (inputArr.length > 0){
-			submit.disabled = true;
-		}else{
-			submit.disabled = false;
-		}
-	}
-	
-	function callAjax(method, value, target){
-		var xmlhttp; 
-	    if (window.XMLHttpRequest){
-			xmlhttp = new XMLHttpRequest();
-	    }
-	    xmlhttp.onreadystatechange = function(){
-	    	
-		    if (xmlhttp.readyState == 4){
-		    	 if (xmlhttp.responseText.length > 0){
-			    	 document.getElementById(target).className = "inputError";
-			    	 document.getElementById(target + "Rsp").innerHTML = "<strong>" + xmlhttp.responseText + "</strong>";
-		    	 }else{
-		    		 document.getElementById(target).className = "inputOK";
-		    		 document.getElementById(target + "Rsp").innerHTML = "";
-		    	 }
-	        } 
-	    }
-        xmlhttp.open("POST", "html/validateReg.php", true);
-        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-
-        //send extra value to compare password/email, else no extra value needed
-        if (method == "passwordRCheck"){
-        	var password = document.getElementById("password").value;
-        	xmlhttp.send('method=' + method + '&value=' + encodeURIComponent(value) + '&extraVal=' + encodeURIComponent(password));
-        }else if(method == "emailRCheck"){
-        	var email = document.getElementById("email").value;
-        	xmlhttp.send('method=' + method + '&value=' + encodeURIComponent(value) + '&extraVal=' + encodeURIComponent(email));
-        }else{  
-        	xmlhttp.send('method=' + method + '&value=' + encodeURIComponent(value) + '&extraVal=');
-        }
-	}
-	
-</script>
 <?php
 include_once ('functions.php');
-//include_once ('GeoIPLocator.php');
+include_once ('GeoIPLocator.php');
 
 //load texts for choosen language
 $texts = simplexml_load_file("./text/$language.xml");
@@ -143,7 +91,7 @@ if (isset($_POST['submit'])){
 	echo '<input class="buttons" id="reset" type="reset" value="' . $resetValue . '"></input>';
 	echo '</fieldset>';
 	echo '</form>';
-//	echo '<p>' .$locationText. ' ' .$ipAddress. ', ' .getGeoCountryWithWS($ipAddress). '</p>';
+	echo '<p>' .$locationText. ' ' .$ipAddress. ', ' .getGeoCountryWithWS($ipAddress). '</p>';
 }
 
 ?>

@@ -1,4 +1,73 @@
 /**
+ * checks if a input field is empty and sets the css classes
+ * @param value the value to check
+ * @param target the id of the input field to check
+ */
+function checkIfEmpty(value, target){
+	if (value == ""){
+		if (target == "streetNumber"){
+			document.getElementById(target).className = "inputOK";
+		}else{
+			document.getElementById(target).className = "inputError";
+		}
+	}
+	
+	//check if there are still errors, if not enable submit form
+	var submit = document.getElementById("submit");
+	var inputArr = document.getElementsByClassName("inputError");
+	if (inputArr.length > 0){
+		submit.disabled = true;
+	}else{
+		submit.disabled = false;
+	}
+}
+
+/**
+ * Uses ajax to validate the registration form
+ * @param method the method to call for in the server side php file
+ * @param value the value of the input field
+ * @param target the id of the input field
+ */
+function callAjax(method, value, target){
+	
+	//create new ajax request
+	var xmlhttp; 
+	   if (window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+    }
+	
+	//check for readyState 4 (completed)
+	xmlhttp.onreadystatechange = function(){
+		if (xmlhttp.readyState == 4){
+			
+			//if an error was detected set message and paint field red, else everything is ok (green)
+			if (xmlhttp.responseText.length > 0){
+				document.getElementById(target).className = "inputError";
+				document.getElementById(target + "Rsp").innerHTML = "<strong>" + xmlhttp.responseText + "</strong>";
+			}else{
+				document.getElementById(target).className = "inputOK";
+				document.getElementById(target + "Rsp").innerHTML = "";
+			}
+		} 
+	}
+	
+	//open new request, set header for POST-values and send the request to server
+    xmlhttp.open("POST", "html/validateReg.php", true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    //send extra value to compare password/email, else no extra value needed
+    if (method == "passwordRCheck"){
+    	var password = document.getElementById("password").value;
+    	xmlhttp.send('method=' + method + '&value=' + encodeURIComponent(value) + '&extraVal=' + encodeURIComponent(password));
+    }else if(method == "emailRCheck"){
+    	var email = document.getElementById("email").value;
+        xmlhttp.send('method=' + method + '&value=' + encodeURIComponent(value) + '&extraVal=' + encodeURIComponent(email));
+    }else{  
+    	xmlhttp.send('method=' + method + '&value=' + encodeURIComponent(value) + '&extraVal=');
+    }
+}
+
+/**
+ * OLD Version before ajax implementation
  * Validates the registration form, language is set with hidden input 
  * @returns {Boolean} false if an error is found, true if everything is ok
  */

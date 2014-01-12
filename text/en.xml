@@ -26,18 +26,18 @@
 			<reset>Reset entries</reset>
 		</buttons>
 		<errors>
-			<username>Fehler beim Benutzername! Erlaubt sind Buchstaben und Zahlen. Muss mit einem Buchstaben anfangen</username>
-			<firstname>Fehler bei Vorname! Mindestens 2 Buchstaben, ohne Leerzeichen</firstname>
-			<lastname>Fehler bei Nachname! Mindestens zwei Buchstaben, Leerzeichen sind erlaubt</lastname>
-			<street>Fehler bei Strasse! Nur Buchstaben sind erlaubt</street>
-			<streetNumber>Fehler bei Strassenummer! Nur Buchstaben aus dem Alphabet und Zahlen sind erlaubt</streetNumber>
-			<ZIP>Fehler bei PLZ! Nur vierstellige Zahlen sind erlaubt</ZIP>
-			<city>Fehler beim Ort! Nur Buchstaben und Leerzeichen sind erlaubt</city>
-			<phone>Fehler bei der Telefonnummer! Bitte Telefonnummer im Format +41 XX XXX XX XX angeben</phone>
-			<email>Fehler bei E-Mailadresse! Keine gültige E-Mailadresse</email>
-			<emailR>Fehler bei E-Mailadresse! Einträge stimmen nicht überein</emailR>
-			<password>Fehler beim Passwort! Muss zwischen 6 bis 20 Zeichen lang sein</password>
-			<passwordR>Fehler beim Passwort! Einträge stimmen nicht überein</passwordR>
+			<username>Username error! Allowed characters are the alphabet and numbers. Must start with a letter</username>
+			<firstname>Firstname error! At least 2 characters, without spaces</firstname>
+			<lastname>Lastname error! At least two letters, spaces are allowed</lastname>
+			<street>Street error! Only letters are allowed</street>
+			<streetNumber>Street number error! Only letters from the alphabet and numbers are allowed</streetNumber>
+			<ZIP>ZIP error! Only four-digit numbers are allowed</ZIP>
+			<city>City error! Only letters and spaces are allowed</city>
+			<phone>Phonenumber error! Please provide your number in the following format: +41 XX XXX XX XX</phone>
+			<email>Email address error! This is not a valid email address</email>
+			<emailR>Email address error! Entries don't match</emailR>
+			<password>Password error! Must be between 6 to 20 characters</password>
+			<passwordR>Password error! Entries don't match</passwordR>
 		</errors>
 	</registration>
 	<user>
