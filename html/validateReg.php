@@ -44,13 +44,13 @@ switch($method){
 			echo $errorTexts->street;
 		}
 		break;
-	case "streetNumberCheck":
+	case "streetNoCheck":
 		$regex = "/^[0-9A-Za-z]*$/";
 		if (!preg_match($regex, $value)){
 			echo $errorTexts->streetNumber;
 		}
 		break;
-	case "ZIPCheck":
+	case "zipCheck":
 		$regex = "/^[1-9]{1}\d{3}$/";
 		if (!preg_match($regex, $value)){
 			echo $errorTexts->ZIP;

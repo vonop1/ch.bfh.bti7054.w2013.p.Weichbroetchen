@@ -6,8 +6,8 @@
 			<firstname>Vorname</firstname>
 			<lastname>Nachname</lastname>
 			<street>Strasse</street>
-			<streetNumber>Hausnummer</streetNumber>
-			<ZIP>PLZ</ZIP>
+			<streetNo>Hausnummer</streetNo>
+			<zip>PLZ</zip>
 			<city>Ort</city>
 			<phone>Telefonnummer</phone>
 			<email>E-Mailadresse</email>
@@ -17,6 +17,7 @@
 		</form>
 		<titles>
 			<main>Registration</main>
+			<Account>Benutzerdaten</Account>
 			<userReg>Kontaktangaben</userReg>
 			<finish>Abschliessen</finish>
 			<location>Ihre Herkunft (IP-Adresse und Land) wird bei der Registrierung gespeichert:</location>
@@ -30,8 +31,8 @@
 			<firstname>Fehler bei Vorname! Mindestens 2 Buchstaben, ohne Leerzeichen</firstname>
 			<lastname>Fehler bei Nachname! Mindestens zwei Buchstaben, Leerzeichen sind erlaubt</lastname>
 			<street>Fehler bei Strasse! Nur Buchstaben sind erlaubt</street>
-			<streetNumber>Fehler bei Strassenummer! Nur Buchstaben aus dem Alphabet und Zahlen sind erlaubt</streetNumber>
-			<ZIP>Fehler bei PLZ! Nur vierstellige Zahlen sind erlaubt</ZIP>
+			<streetNo>Fehler bei Strassenummer! Nur Buchstaben aus dem Alphabet und Zahlen sind erlaubt</streetNo>
+			<zip>Fehler bei PLZ! Nur vierstellige Zahlen sind erlaubt</zip>
 			<city>Fehler beim Ort! Nur Buchstaben und Leerzeichen sind erlaubt</city>
 			<phone>Fehler bei der Telefonnummer! Bitte Telefonnummer im Format +41 XX XXX XX XX angeben</phone>
 			<email>Fehler bei E-Mailadresse! Keine gültige E-Mailadresse</email>
@@ -40,6 +41,7 @@
 			<passwordR>Fehler beim Passwort! Einträge stimmen nicht überein</passwordR>
 			<regErr> ist bereits vergeben. Bitte wählen Sie einen anderen Namen</regErr>
 			<regSuc> wurde erstellt. Sie können sich nun einloggen</regSuc>
+			<accSuc>Ihre Daten wurden erfolgreich aktualisiert</accSuc>
 		</errors>
 	</registration>
 	<user>

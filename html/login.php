@@ -1,7 +1,5 @@
 <?php
-session_unset();
-session_destroy();
-session_start();
+session_unset('user');
 
 include_once ('functions.php');
 include('UserDB.inc.php');

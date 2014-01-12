@@ -6,8 +6,8 @@
 			<firstname>Firstname</firstname>
 			<lastname>Lastname</lastname>
 			<street>Street</street>
-			<streetNumber>Street number</streetNumber>
-			<ZIP>ZIP</ZIP>
+			<streetNo>Street number</streetNo>
+			<zip>ZIP</zip>
 			<city>City</city>
 			<phone>Phonenumber</phone>
 			<email>emailaddress</email>
@@ -17,6 +17,7 @@
 		</form>
 		<titles>
 			<main>Registration</main>
+			<Account>User account</Account>
 			<userReg>Contact data</userReg>
 			<finish>Finish</finish>
 			<location>Your origin (IP-address and country) will be saved by registration:</location>
@@ -30,8 +31,8 @@
 			<firstname>Firstname error! At least 2 characters, without spaces</firstname>
 			<lastname>Lastname error! At least two letters, spaces are allowed</lastname>
 			<street>Street error! Only letters are allowed</street>
-			<streetNumber>Street number error! Only letters from the alphabet and numbers are allowed</streetNumber>
-			<ZIP>ZIP error! Only four-digit numbers are allowed</ZIP>
+			<streetNo>Street number error! Only letters from the alphabet and numbers are allowed</streetNo>
+			<zip>ZIP error! Only four-digit numbers are allowed</zip>
 			<city>City error! Only letters and spaces are allowed</city>
 			<phone>Phonenumber error! Please provide your number in the following format: +41 XX XXX XX XX</phone>
 			<email>Email address error! This is not a valid email address</email>
@@ -40,6 +41,7 @@
 			<passwordR>Password error! Entries don't match</passwordR>
 			<regErr>  is already taken. Please choose something else</regErr>
 			<regSuc> was created. You\'re now able to login</regSuc>
+			<accSuc>Your data was updated successfully</accSuc>
 		</errors>
 	</registration>
 	<user>

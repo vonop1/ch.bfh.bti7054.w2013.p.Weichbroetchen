@@ -86,10 +86,10 @@ function validateForm(){
 	var street = document.getElementById("street");
 	street.className = "inputOK";
 	street.title = "OK";
-	var streetNo = document.getElementById("streetNumber");
+	var streetNo = document.getElementById("streetNo");
 	streetNo.className = "inputOK";
 	streetNo.title = "OK";
-	var zip = document.getElementById("ZIP");
+	var zip = document.getElementById("zip");
 	zip.className = "inputOK";
 	zip.title = "OK";
 	var city = document.getElementById("city");
@@ -104,13 +104,17 @@ function validateForm(){
 	var emailR = document.getElementById("emailR");
 	emailR.className = "inputOK";
 	emailR.title = "OK";
-	var password = document.getElementById("password");
-	password.className = "inputOK";
-	password.title = "OK";
-	var passwordR = document.getElementById("passwordR");
-	passwordR.className = "inputOK";
-	passwordR.title = "OK";
-	
+	var checkPwd = false;
+	if (document.getElementById("password")){
+		var password = document.getElementById("password");
+		password.className = "inputOK";
+		password.title = "OK";
+		var passwordR = document.getElementById("passwordR");
+		passwordR.className = "inputOK";
+		passwordR.title = "OK";
+		checkPwd = true;
+	}
+
 	//get language
 	var language = document.getElementById("lang").value;
 	
@@ -222,28 +226,30 @@ function validateForm(){
 		ret = false;
 	}
 	
-	if (password.value != passwordR.value){
-		if(language == "en"){
-			password.title = "Password error! Entries don't match";
-			passwordR.title = "Password error! Entries don't match";
-		}else{
-			password.title = "Fehler beim Passwort! Einträge stimmen nicht überein";
-			passwordR.title = "Fehler beim Passwort! Einträge stimmen nicht überein";
+	if(checkPwd){
+		if (password.value != passwordR.value){
+			if(language == "en"){
+				password.title = "Password error! Entries don't match";
+				passwordR.title = "Password error! Entries don't match";
+			}else{
+				password.title = "Fehler beim Passwort! Einträge stimmen nicht überein";
+				passwordR.title = "Fehler beim Passwort! Einträge stimmen nicht überein";
+			}
+			password.className = "inputError";
+			passwordR.className = "inputError";
+			ret = false;
+		}else if(!password.value.match(/^[\S]{6,20}$/)){
+			if(language == "en"){
+				password.title = "Password error! Must be between 6 to 20 characters";
+				passwordR.title = "Password error! Must be between 6 to 20 characters";
+			}else{
+				password.title = "Fehler beim Passwort! Muss zwischen 6 bis 20 Zeichen lang sein";
+				passwordR.title = "Fehler beim Passwort! Muss zwischen 6 bis 20 Zeichen lang sein";
+			}
+			password.className = "inputError";
+			passwordR.className = "inputError";
+			ret = false;
 		}
-		password.className = "inputError";
-		passwordR.className = "inputError";
-		ret = false;
-	}else if(!password.value.match(/^[\S]{6,20}$/)){
-		if(language == "en"){
-			password.title = "Password error! Must be between 6 to 20 characters";
-			passwordR.title = "Password error! Must be between 6 to 20 characters";
-		}else{
-			password.title = "Fehler beim Passwort! Muss zwischen 6 bis 20 Zeichen lang sein";
-			passwordR.title = "Fehler beim Passwort! Muss zwischen 6 bis 20 Zeichen lang sein";
-		}
-		password.className = "inputError";
-		passwordR.className = "inputError";
-		ret = false;
 	}
 
 	return ret;
