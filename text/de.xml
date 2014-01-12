@@ -11,7 +11,7 @@
 			<city>Ort</city>
 			<phone>Telefonnummer</phone>
 			<email>E-Mailadresse</email>
-			<emailR>E-Mailadresse wiederholen</emailR>
+			<emailR>E-Mail wiederholen</emailR>
 			<password>Passwort</password>
 			<passwordR>Passwort wiederholen</passwordR>
 		</form>
@@ -25,6 +25,20 @@
 			<send>Abschicken</send>
 			<reset>Eingaben löschen</reset>
 		</buttons>
+		<errors>
+			<username>Fehler beim Benutzername! Erlaubt sind Buchstaben und Zahlen. Muss mit einem Buchstaben anfangen</username>
+			<firstname>Fehler bei Vorname! Mindestens 2 Buchstaben, ohne Leerzeichen</firstname>
+			<lastname>Fehler bei Nachname! Mindestens zwei Buchstaben, Leerzeichen sind erlaubt</lastname>
+			<street>Fehler bei Strasse! Nur Buchstaben sind erlaubt</street>
+			<streetNumber>Fehler bei Strassenummer! Nur Buchstaben aus dem Alphabet und Zahlen sind erlaubt</streetNumber>
+			<ZIP>Fehler bei PLZ! Nur vierstellige Zahlen sind erlaubt</ZIP>
+			<city>Fehler beim Ort! Nur Buchstaben und Leerzeichen sind erlaubt</city>
+			<phone>Fehler bei der Telefonnummer! Bitte Telefonnummer im Format +41 XX XXX XX XX angeben</phone>
+			<email>Fehler bei E-Mailadresse! Keine gültige E-Mailadresse</email>
+			<emailR>Fehler bei E-Mailadresse! Einträge stimmen nicht überein</emailR>
+			<password>Fehler beim Passwort! Muss zwischen 6 bis 20 Zeichen lang sein</password>
+			<passwordR>Fehler beim Passwort! Einträge stimmen nicht überein</passwordR>
+		</errors>
 	</registration>
 	<user>
 		<Username>Benutzername</Username>

@@ -137,6 +137,11 @@ input:active, input:focus, input:hover {
 	border: 1px solid red;
 }
 
+.errorMsg {
+	font-size: 11px; 
+	color: darkred;
+}
+
 .inputOK {
 	background: lightgreen;
 	border: 1px solid green;
