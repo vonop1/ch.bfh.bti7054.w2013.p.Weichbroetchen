@@ -38,6 +38,8 @@
 			<emailR>Fehler bei E-Mailadresse! Einträge stimmen nicht überein</emailR>
 			<password>Fehler beim Passwort! Muss zwischen 6 bis 20 Zeichen lang sein</password>
 			<passwordR>Fehler beim Passwort! Einträge stimmen nicht überein</passwordR>
+			<regErr> ist bereits vergeben. Bitte wählen Sie einen anderen Namen</regErr>
+			<regSuc> wurde erstellt. Sie können sich nun einloggen</regSuc>
 		</errors>
 	</registration>
 	<user>

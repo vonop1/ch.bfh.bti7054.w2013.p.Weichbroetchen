@@ -24,7 +24,12 @@ $formTexts = $registrationTexts->form;
 // set button texts
 $buttonTexts = $registrationTexts->buttons;
 $submitValue = $buttonTexts->send;
-$resetValue = utf8_decode ( $buttonTexts->reset );
+$resetValue = utf8_decode($buttonTexts->reset);
+
+//set feedback texts
+$errorTexts = $texts->registration->errors;
+$regErr = utf8_decode($errorTexts->regErr);
+$regSuc = utf8_decode($errorTexts->regSuc);
 
 // set input field length
 $inputSize = 50;
@@ -52,17 +57,9 @@ if (isset($_POST['submit'])){
 	$user = User::withRow($userRow);
 	$user->createUser();
 	if($user->getRegError()){
-		if ($language == "en"){
-			echo '<p>Username: ' .$username. ' is already taken. Please choose something else</p>';
-		}else{
-			echo '<p>Benutzername: ' .$username. ' ist bereits vergeben. Bitte wählen Sie einen anderen Namen</p>';
-		}
+		echo '<p>' .$username.$regErr. '</p>';
 	}else{
-		if ($language == "en"){
-			echo '<p>User: ' .$username. ' was created. You\'re now able to login</p>';
-		}else{
-			echo '<p>User: ' .$username. ' wurde erstellt. Sie können sich nun einloggen</p>';
-		}
+		echo '<p>' .$username.$regSuc. '</p>';
 	}
 
 }else{ // display the registration form
