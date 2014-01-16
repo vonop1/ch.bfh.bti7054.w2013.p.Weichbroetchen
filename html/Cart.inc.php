@@ -21,6 +21,12 @@
 			}
 			else return false;
 		}
+
+		//remove all items form cart
+		public function clearCart() {
+			unset($this->items);
+			$this->counter = 1;
+		}
 		
 		/**
 		 * generate HTML-code to display the shopping-cart
@@ -44,6 +50,7 @@
 			$priceString = 'Fr. '.number_format($this->calcPrice(), 2,".","'");
 			echo "<p class=\"cartitem\">Total: $priceString</p>";
 			echo "<form name=\"finishOrder\"  method=\"post\" onSubmit=\"return confirmOrder('$cartTexts->confirm');\" action=\"\" >";
+			echo "<input type=\"hidden\" name=\"order\" value=\"1\">";
 			echo "<input type=\"submit\" value=\"$cartTexts->send\"/>";
 			echo "<input type=\"button\" onclick=\"openPdf();\" value=\"$cartTexts->print\"/>";
 			echo "</form>";

@@ -35,6 +35,9 @@
 	
 	}
 	
+	/**
+	 * 
+	 */
 	function processHttpRequests()
 	{
 
@@ -75,6 +78,13 @@
 		{
 			$shoppingCart->removeItem($_POST["itemToRemove"]);
 		}
+		
+		//clear shopping Cart after order
+		if (isSet($_POST["order"]))
+		{
+			$shoppingCart->clearCart();
+		}
+
 		$_SESSION["cart"] = serialize($shoppingCart);
 	}
 ?>
