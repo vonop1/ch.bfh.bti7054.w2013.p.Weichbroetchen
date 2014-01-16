@@ -8,8 +8,8 @@ if (!isset($_POST['method']) || !isset($_POST['value'])){
 
 //get values
 $method = $_POST['method'];
-$value = rawurldecode($_POST['value']);
-$extraVal = rawurldecode($_POST['extraVal']);
+$value = utf8_decode($_POST['value']);
+$extraVal = $_POST['extraVal'];
 
 //load texts for choosen language
 $texts = simplexml_load_file("../text/$language.xml");
@@ -27,13 +27,13 @@ switch($method){
 		}
 		break;
 	case "firstnameCheck":
-		$regex = "/^[A-ZÄÖÜa-zäöüéèàç]{2,}$/";
+		$regex = "/^[a-zA-ZäöüÄÖÜéàèÉÈç]{2,}$/";
 		if (!preg_match($regex, $value)){
 			echo $errorTexts->firstname;
 		}
 		break;
 	case "lastnameCheck":
-		$regex = "/^[A-ZÄÖÜa-zäöüéèàç]{1}[A-ZÄÖÜa-zäöüéèàç ]{1,}$/";
+		$regex = "/^[a-zA-ZäöüÄÖÜéàèÉÈç]{1}[a-zA-ZäöüÄÖÜéàèÉÈç ]{1,}$/";
 		if (!preg_match($regex, $value)){
 			echo $errorTexts->lastname;
 		}
@@ -47,13 +47,13 @@ switch($method){
 	case "streetNoCheck":
 		$regex = "/^[0-9A-Za-z]*$/";
 		if (!preg_match($regex, $value)){
-			echo $errorTexts->streetNumber;
+			echo $errorTexts->streetNo;
 		}
 		break;
 	case "zipCheck":
 		$regex = "/^[1-9]{1}\d{3}$/";
 		if (!preg_match($regex, $value)){
-			echo $errorTexts->ZIP;
+			echo $errorTexts->zip;
 		}
 		break;
 	case "cityCheck":
@@ -63,9 +63,9 @@ switch($method){
 		}
 		break;
 	case "phoneCheck":
-		$regex = "/^\+\d{2}[ ]{1}\d{2}[ ]{1}\d{3}[ ]{1}\d{2}[ ]{1}\d{2}$/";
+		$regex = "/^\+\d{2} \d{2} \d{3} \d{2} \d{2}$/";
 		if (!preg_match($regex, $value)){
-			$errorTexts->phone;
+			echo $errorTexts->phone;
 		}
 		break;
 	case "emailCheck":

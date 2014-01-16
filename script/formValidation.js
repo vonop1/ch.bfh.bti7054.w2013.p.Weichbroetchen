@@ -142,7 +142,7 @@ function validateForm(){
 	    ret = false;
 	}
 	
-	if (!lastname.value.match(/^[A-ZִײÜa-zהצüיטאח]{2,}[[ ]?[A-ZִײÜa-zהצüיטאח]+]*$/)){
+	if (!lastname.value.match(/^[a-zA-ZהצüִײÜיאטָֹח]{1}[a-zA-ZהצüִײÜיאטָֹח ]{1,}$/)){
 		if(language == "en"){
 			lastname.title = "Lastname error! At least two letters, spaces are allowed";
 		}else{
