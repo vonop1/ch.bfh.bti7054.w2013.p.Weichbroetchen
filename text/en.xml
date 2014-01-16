@@ -40,7 +40,7 @@
 			<password>Password error! Must be between 6 to 20 characters</password>
 			<passwordR>Password error! Entries don't match</passwordR>
 			<regErr>  is already taken. Please choose something else</regErr>
-			<regSuc> was created. You\'re now able to login</regSuc>
+			<regSuc> was created. You're now able to login</regSuc>
 			<accSuc>Your data was updated successfully</accSuc>
 		</errors>
 	</registration>
